@@ -1,19 +1,29 @@
 # Introduction
 
-Welcome to the **SPiceZ-Core** documentation. 
+**SPiceZ-Core** (`spz-*`) is an open-source, racing-only framework for FiveM. Every
+feature is a standalone resource; modules talk to each other only through events and
+exports, and the server owns every decision that affects a race result.
 
-SPiceZ-Core (`spz-*`) is a **racing-only FiveM framework** — modular, lightweight, and built purely for competitive street racing. Inspired by the multi-repo structure of modern frameworks, it provides a collection of standalone modules that communicate through a clean API.
+## Philosophy
 
-## Versioning
-Current Core Version: `v2.0.0`
-Current Identity Version: `v1.4.0`
-Current Spawn Version: `v2.0.0`
+1. **No bloat** — racing only. No jobs, no housing, no crime.
+2. **Modular** — run the modules you want, drop the rest.
+3. **Event-driven** — clean separation via exports and events.
+4. **Server-authoritative** — the server owns race state, positions and results.
+5. **One schema owner** — all SQL lives in `spz-core/migrations/`.
 
-## Core Philosophy
-1. **No Bloat**: Racing-only. No jobs, no housing, no crime.
-2. **Modular**: Opt-in only the systems you need.
-3. **Event-Driven**: Clean separation of concerns via exports and events.
-4. **Server-Authoritative**: The server handles race logic, positions, and state.
+## Where to start
 
-## How to use these docs
-Use the sidebar to navigate through the installation guides, module references, and gameplay mechanics.
+| You want to | Go to |
+|---|---|
+| Get a server running | [Installation](get-started/installation.md) |
+| Configure it after first boot | [First-time setup](get-started/first-time-setup.md) |
+| Understand how the pieces fit | [Architecture](architecture.md) |
+| Look up a module's exports | [Modules](modules/README.md) |
+| Know how a race actually runs | [Race flow](gameplay/race-flow.md) |
+
+## Versions
+
+Each module carries its own version in `fxmanifest.lua`; the module list in
+[Modules](modules/README.md) tracks the current set. Cross-repo change history lives in
+`CHANGELOG.md` at the root of the workspace.

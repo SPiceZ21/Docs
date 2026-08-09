@@ -1,49 +1,69 @@
-# spz-identity — Player Profiles & Licensing
+# spz-identity
 
-> **Version**: `v1.4.0`  
-> **SPiceZ-Core** | Identity module  
-> Manages player profiles, driver license tiers, crew membership, and character initialization.
+> Player profiles, citizen IDs, licenses, ranks, crews · `v1.5.0`
 
-## 1. Overview
-`spz-identity` is the player data layer for SPiceZ-Core. It manages the lifecycle of a player's profile from the first connection to character creation and persistent storage.
+## Overview
 
-## 2. The Connection & Creation Flow
-This is the most critical part of the identity module. It differentiates between returning players and new racers.
+The player data layer. It resolves a connecting player to a profile, runs first-time
+character creation, and owns usernames, citizen IDs, license tiers, ranks, ratings and
+crews. Other modules read player data through its exports, never from the `players` table
+directly.
 
-### 2.1 Connection Flow
-1. **Connect**: `spz-core` fires `SPZ:playerConnected`.
-2. **Lookup**: `spz-identity` checks the database for a matching Rockstar License.
-3. **Branching Logic**:
-    *   **Existing Player**: If a profile is found and `first_time = 0`, it warms the cache and fires `SPZ:playerReady`.
-    *   **New Player**: If no profile exists, `CreateProfile` is called. The profile is initialized with `first_time = 1`.
-4. **First-Time Detection**: If `first_time == 1`, the server:
-    *   Fires `SPZ:openCharacterCreation` on the client.
-    *   **Wait**: It does NOT fire `SPZ:playerReady` yet.
+## Connection and creation flow
 
-### 2.2 Character Creation
-The player is presented with a UI to choose their:
-- **Gender** (Male/Female)
-- **Username** (Validated for uniqueness)
+1. `spz-core` fires `SPZ:playerConnected`.
+2. Identity looks the player up by license.
+   - **Existing profile** with `first_time = 0` → cache warmed, `SPZ:playerReady` fires.
+   - **No profile** → `CreateProfile` with `first_time = 1`.
+3. When `first_time == 1` the server fires `SPZ:openCharacterCreation` on the client and
+   **withholds** `SPZ:playerReady`.
+4. The player picks a gender, a username, a nation flag and a race number (1–99). Username
+   and race number are both validated for uniqueness server-side.
+5. The server stores them, clears `first_time`, then fires `SPZ:characterReady` and
+   `SPZ:playerReady`.
 
-Once submitted, the server updates the profile:
-- Sets `username` and `gender`.
-- Sets `first_time = 0`.
-- Fires `SPZ:characterReady` and `SPZ:playerReady`.
+Flag and race number appear on nametags and in the standings tower; flags ship as local
+assets rather than being fetched from a CDN.
 
-## 3. Database Schema
-### `players` table
-| Column | Type | Default | Description |
-|---|---|---|---|
-| `id` | INT | Auto Inc | Primary Key |
-| `username` | VARCHAR | NULL | Unique Racer Name |
-| `gender` | INT | NULL | 0=Male, 1=Female |
-| `first_time` | INT | 1 | Flag for new players |
-| `license_tier`| INT | 0 | 0=C, 1=B, 2=A, 3=S |
+Modules that need player data must wait for `SPZ:playerReady`, not `SPZ:playerConnected`.
 
-## 4. Events Reference
-| Event | Side | Description |
+## Exports
+
+| Group | Exports |
+|---|---|
+| Profile | `GetProfile` · `CreateProfile` · `UpdateProfile` · `SaveProfile` · `GetClientProfile` · `GetSyncSubset` · `SetPlayerState` |
+| Identity | `GetCitizenId` · `GetByCitizenId` · `GetUsername` · `GetPlatformName` · `GetPlaytime` |
+| Licenses | `HasLicense` · `GetLicenseTier` · `UnlockLicense` · `GetLicenseHistory` |
+| Ranks | `GetRankName` |
+| Crews | `CreateCrew` · `JoinCrew` · `LeaveCrew` · `GetCrew` · `GetCrewTag` · `GetOnlineCrewMembers` · `GetCrewCooldownSeconds` |
+| Admin | `BanPlayer` |
+
+```lua
+local profile = exports['spz-identity']:GetProfile(source)
+local tier    = exports['spz-identity']:GetLicenseTier(source)
+```
+
+## Events
+
+| Event | Side | Meaning |
 |---|---|---|
-| `SPZ:openCharacterCreation` | Client | Triggered for new players to open the NUI form. |
-| `SPZ:characterCreated` | Server | Callback from NUI with gender and username. |
-| `SPZ:characterReady` | Server | Fired after profile initialization is complete. |
-| `SPZ:playerReady` | Server | Global signal that player data is safe to use. |
+| `SPZ:openCharacterCreation` | Client | New player — open the creation form |
+| `SPZ:characterCreated` | Server | NUI submitted gender and username |
+| `SPZ:characterReady` | Server | Profile initialised |
+| `SPZ:playerReady` | Server | Player data is safe to read |
+
+## Schema
+
+Owned by `spz-core/migrations/`. Key `players` columns:
+
+| Column | Type | Default | Meaning |
+|---|---|---|---|
+| `id` | INT | auto | Primary key |
+| `username` | VARCHAR | NULL | Unique racer name |
+| `gender` | INT | NULL | 0 = male, 1 = female |
+| `first_time` | INT | 1 | Character creation pending |
+| `license_tier` | INT | 0 | 0 = C, 1 = B, 2 = A, 3 = S |
+
+## Dependencies
+
+`ox_lib` · `spz-core` · `oxmysql`

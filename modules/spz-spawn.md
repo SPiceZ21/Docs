@@ -1,49 +1,56 @@
-# spz-spawn — Spawning Manager
+# spz-spawn
 
-> **Version**: `v2.0.0`  
-> **SPiceZ-Core** | Spawning & World Entry  
-> Handles the transition from the loading screen to the game world.
+> Play menu, spawn points, world entry · `v2.1.0`
 
-## 1. Overview
-`spz-spawn` manages how players enter the server. It provides a "Play Menu" (welcome screen) and handles the physical teleportation to spawn points.
+## Overview
 
-## 2. Spawning Lifecycle
-The module is designed to wait for `spz-identity` to signal that the player is ready.
+`spz-spawn` moves the player from the loading screen into the world. Returning players see
+a cinematic play menu with their stats and a spawn-point picker; first-time players go
+through character creation first.
 
-### 2.1 The Play Menu
-For existing players, `spz-spawn` automatically opens a cinematic menu showing:
-- Player Stats (Rank, Tier, Playtime)
-- Spawn Point Selection
-- Character Preview
+## Lifecycle
 
-### 2.2 New Player Handling
-To prevent UI conflicts, `spz-spawn` is "aware" of first-time players:
-- **Server-side**: It ignores requests for the Play Menu if `profile.first_time == 1`.
-- **Client-side**: It detects the `firstTime` state and:
-    1.  Shuts down the loading screen.
-    2.  Ensures the world fades in.
-    3.  Waits for character creation to complete before requesting the spawn menu.
+The module waits for `spz-identity` to signal readiness before doing anything.
 
-## 3. Client Events
-### `SPZ:showPlayMenu`
-Opens the NUI spawn menu with player metadata.
+**Returning player** — the menu opens with rank, tier, playtime, a character preview and
+the spawn-point list. Choosing a point performs the spawn.
+
+**First-time player** — to stop two UIs fighting:
+
+- *Server side*: play-menu requests are ignored while `profile.first_time == 1`.
+- *Client side*: the loading screen is shut down, the world faded in, and the menu is only
+  requested once character creation completes.
+
+## Events
+
+| Event | Purpose |
+|---|---|
+| `SPZ:showPlayMenu` | Open the menu with player metadata |
+| `SPZ:spawnPlayerTarget` | Perform the physical spawn — model, teleport, resurrect |
+
 ```lua
-TriggerEvent("SPZ:showPlayMenu", {
-    name = "RacerX",
-    rank = "C-5",
-    tier = 0,
-    gender = 0
+TriggerEvent('SPZ:showPlayMenu', {
+    name   = 'RacerX',
+    rank   = 'C-5',
+    tier   = 0,
+    gender = 0,
 })
 ```
 
-### `SPZ:spawnPlayerTarget`
-Performs the physical spawn (model setting, teleport, resurrect).
+## Configuration
 
-## 4. Configuration
-Spawns are configured in `config.lua`:
+`spz-spawn/config.lua`:
+
 ```lua
 Config.Spawns = {
-    [1] = { label = "Safe Zone", coords = vector4(X, Y, Z, W) },
-    ...
+    [1] = { label = 'Safe Zone', coords = vector4(x, y, z, w) },
 }
 ```
+
+## Commands
+
+`/testspawn` · `/testcreation` — development helpers.
+
+## Dependencies
+
+`spawnmanager` · `ox_lib` · `spz-core` · `spz-identity`
