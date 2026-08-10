@@ -23,9 +23,9 @@
 The recipe downloads every dependency and module and writes `server.cfg` in the correct
 order.
 
-> The recipe does not currently download `spz-physics` or `spz-raceline`, although
-> `server.cfg` ensures them. Install those two manually or comment out their `ensure`
-> lines.
+> `spz-physics` is not installed by the recipe. Its `ensure` line ships commented out in
+> the generated `server.cfg` — install the resource manually and uncomment the line if you
+> want the powertrain simulation.
 
 ## Option B — manual
 

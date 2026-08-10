@@ -15,13 +15,30 @@ rather than being pushed to.
 ## What it simulates
 
 - Torque-curve power band from per-model profiles
+- RPM driven by the driven wheels, so wheelspin revs the engine, with crank inertia
+  smoothing the response
 - Simulated RPM driving engine audio
-- Auto, sequential and manual + clutch transmissions, with shift cut and clutchless
-  grinding penalty
-- Rev limiter, engine braking, free rev in neutral
+- Auto, sequential and manual + clutch transmissions, with shift cut, clutchless
+  grinding penalty, a modelled reverse gear and an auto box that won't hunt
+- Rev limiter that bounces, mass-normalised engine braking, free rev in neutral
 - Turbo (spool and blow-off) and supercharger boost
 - Launch control, TCS, and an LSD that brake-vectors the spinning drive wheel
 - Tire compounds as live grip multipliers: `street · sport · semislick · drift · offroad`
+
+## Handling safety
+
+Compounds are the only writes this resource makes to `CHandlingData`, limited to three grip
+fields and funnelled through `client/handling.lua`.
+
+Because compounds multiply stock grip, stock has to be exact. The baseline is captured once
+per model *before* anything is written and persisted to KVP, so a restart mid-drive can
+never record already-modified values as stock and ratchet grip upward. Applies and restores
+compute from that baseline, making them idempotent. Implausible baselines disable compounds
+for the model instead of corrupting it, a stored baseline that disagrees with a clean
+vehicle is treated as a changed `handling.meta` and adopted, and the same disagreement after
+a write is reported as cross-vehicle leakage.
+
+Diagnostics: `/physhandling`, `/physrestore`, `/physforgetbaseline`.
 
 ## PP rating
 
@@ -73,6 +90,7 @@ local gear = Entity(veh).state.physGear
 ## Commands
 
 `/transmode` · `/tcs` · `/tires <compound>` · `/pp` · `/driftreset` · `/physhud`
+· `/physhandling` · `/physrestore` · `/physforgetbaseline`
 
 Shift up, shift down and clutch are rebindable in Settings → Key Bindings
 (`LEFT SHIFT`, `LEFT CTRL`, `LEFT ALT` by default).
