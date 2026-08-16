@@ -38,13 +38,6 @@ Classes can also be balanced by PP, the 0–1000 performance number computed by
 | A | ≤ 750 |
 | S | ≤ 1000 |
 
-## Rolling championship series
-
-Every finished race is a round scoring F1-style points. Standings carry across rounds, and
-after a dynamic number of rounds a champion is crowned and rewarded before a fresh series
-starts automatically. There is no schedule — it flows race to race. `/series` shows the
-live table.
-
 ## Rivals
 
 Each player is paired with the nearest player by iRating. Beating your rival's stored time

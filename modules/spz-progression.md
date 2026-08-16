@@ -6,7 +6,7 @@
 
 `spz-progression` listens for race results and converts them into progress: XP and levels,
 championship points, Safety Rating, an Elo-style iRating, rank movement and license
-unlocks. It also owns seasons, rivals and series.
+unlocks. It also owns seasons and rivals.
 
 It never writes identity data directly — promotions and rating changes go through
 `spz-identity` exports.
@@ -31,7 +31,6 @@ It never writes identity data directly — promotions and rating changes go thro
 | Ratings | `CalculateSRDelta` · `ApplySR` · `CalculateIRatingDeltas` |
 | Ranks | `ComputeRank` · `CheckRankPromotion` |
 | Licenses | `CheckLicenseUnlock` |
-| Series | `GetSeries` |
 
 ## Configuration
 
@@ -41,7 +40,7 @@ read.
 
 ## Commands
 
-`/spz` · `/rival` · `/series`
+`/spz` · `/rival`
 
 ## Dependencies
 
