@@ -33,7 +33,6 @@ worth documenting; the rest are self-contained and documented in their own `READ
 |---|---|---|
 | [spz-physics](spz-physics.md) | `0.4.0` | Powertrain sim, tire compounds, PP rating, drift scoring |
 | spz-tunners | `1.0.0` | Keyboard tuning menu |
-| spz-nos | `1.0.5` | Nitrous |
 | spz-carspawner | `1.1.0` | Vehicle spawn menu |
 | spz-carfx | `1.0.0` | Particle effects (assets only) |
 | spz-vehfunc | `1.0.1` | Indicators, hazards, taunts, idle cam |
