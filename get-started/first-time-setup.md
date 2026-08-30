@@ -24,6 +24,13 @@ Config.Spawns = {
 intermission and spawn mode. Tracks live in `spz-races/data/tracks.lua` (101 shipped: 76
 circuit, 25 sprint); build new ones in-game with `/trackcreator`.
 
+Two knobs worth understanding before you touch them:
+
+| Setting | Why it matters |
+|---|---|
+| `SpawnStaggerMs` (800) + `GridTpSettleMs` (400) | Per-racer cost of building the grid. The whole grid must spawn inside `SpawnTimeout` (30 s) or the session stages while cars are still being created. At 1.2 s per racer a full 16-car grid takes ~19 s. |
+| `Rewind.maxCreditPerLapMs` (15 s) | Clock a rewind can win back, **per lap** — a 3-lap circuit allows three times this. Only governs how forgiving the mid-race feel is: any rewound run is already barred from records and personal bests. |
+
 ## 4. Vehicles
 
 `spz-vehicles/data/vehicles.lua` is the master table — what exists, which class it belongs

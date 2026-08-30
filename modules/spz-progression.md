@@ -11,6 +11,10 @@ unlocks. It also owns seasons and rivals.
 It never writes identity data directly — promotions and rating changes go through
 `spz-identity` exports.
 
+Scoring hangs off `SPZ:raceEnd`, which `spz-races` fires exactly once per race with the
+complete field — iRating in particular is meaningless against a partial one. Do not add a
+handler for `SPZ:racerFinished` here: that fires per finisher and would score a racer twice.
+
 ## Systems
 
 | System | What it measures |
