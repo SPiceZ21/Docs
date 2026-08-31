@@ -56,11 +56,38 @@ car ahead was standing where you are now. It stays a real time across a lap boun
 lapped car reads as the time it is actually down, with a `1L` suffix. `interval` (gap to
 the car directly ahead) is published alongside `gap` (gap to the leader).
 
+A gate scores in **one direction only**. The plane through the checkpoint is oriented by
+that checkpoint's own `heading`, and a hit needs a before→after flip across it, between the
+posts. Approaching from the wrong side leaves you on the "after" side already, so nothing
+scores until you go back around and through it properly.
+
+Two things this depends on, both of which were once broken:
+
+- The gate plane is **infinite**, so the side a player is on is read from their actual
+  position when the checkpoint arms — never assumed. Assuming "before" made a car already
+  past the plane look like it had just crossed forwards.
+- `heading` must survive persistence. The custom-track creator records it per gate; every
+  conversion in `server/creator.lua` has to carry it, or the plane falls back to post order
+  and the gate becomes scoreable both ways.
+
 **Missing a gate is told to you, not left to be discovered.** The crossing test already
 knows the difference between going through the gate and going past it — same plane flip,
 but wide of the posts — so a miss raises a prompt offering both recoveries by key: `F5` to
 rewind, `F4` to teleport to the last checkpoint you crossed. Without it the first sign of
 trouble is the next gate never arming, and eventually the idle-kick DNF.
+
+A miss also requires being **near** the gate: within one gate-width of a post. The plane
+has no width, so a flip can happen hundreds of metres to the side, where nothing has been
+missed — the car is simply elsewhere on the track.
+
+## What you cannot do mid-race
+
+Spawning or deleting a car during a race, a queue or a time trial is refused **server-side**
+(`spz-carspawner`). The radial menu also hides those options while a route is running, but
+that is presentation: `/car` and `/dv` are still typeable and the net event behind the menu
+is still callable from a client, so the decision belongs on the server. A car the race
+engine never issued desyncs the field, orphans the old vehicle in the race bucket, and
+carries none of the race's handling or damage state.
 
 Your client decides *when* you crossed — it owns the frame the gate plane was passed, and
 the server cannot see that. The server decides *whether you could have*: a claimed hit is

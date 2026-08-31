@@ -16,7 +16,8 @@ nothing ever queries a half-built database.
 
 Current set: `001` core schema · `002` race columns · `003` module tables · `004` identity
 columns · `005` track sectors · `006` racelines · `007` nation and race number · `008`
-rivals · `009` duels.
+rivals · `009` duels · `010` leaderboard indexes · `011`–`014` crew image, settings,
+invites and rivals · `015` rival events · `016` race number widened to 1–999.
 
 Add changes as a new numbered file. Never edit one that has shipped.
 
@@ -68,6 +69,41 @@ exports['spz-core']:AssignPlayerToBucket(source, bucketId)
 | `SPZ:coreReady` | Core initialised and migrations applied |
 | `SPZ:playerConnected` | Session created |
 | `SPZ:playerDisconnected` | Session teardown |
+
+## Connection gate
+
+`playerConnecting` is the only moment a player can be held before they exist in the
+session, so it is where the profile is loaded. `spz-core` defers the connection and calls
+`spz-identity:PrepareProfile(identifier)`; a failure there ends the connection with a real
+reason on screen rather than letting the player in to discover there is no profile behind
+them.
+
+This previously called `deferrals.done()` immediately, with the DB lookup left to
+`spz-identity` — which took a `deferrals` argument the event never passed, so all of its
+deferral handling was dead code and nothing gated the connection at all.
+
+If `spz-identity` is not running, the connection is allowed through: a server without
+identity is degraded, not closed.
+
+## Loading screen
+
+The loading screen is `loadscreen_manual_shutdown`, so something must take it down. That
+owner is `spz-loading`, and it is the only thing that calls `ShutdownLoadingScreen`:
+
+| Export | Purpose |
+|---|---|
+| `Stage(key, label?)` | Report boot progress — `booting`, `connect`, `profile`, `world`, `ready` |
+| `Finish()` | Take the screen down; idempotent |
+| `IsFinished()` | Whether it is already down |
+
+The player sees two phases on one bar. The engine drives the first (resource streaming,
+0→60%); `Stage` drives the second (60→100%), covering the server handshake and world
+streaming. That second phase previously had no signal at all, which is why a stall there
+was indistinguishable from a crash — the bar simply sat at 100%.
+
+A watchdog reports which stage stalled and force-closes the screen after 45s. The old
+failsafe was a blind timer that killed the screen silently and dropped the player into an
+unstreamed world with no explanation.
 
 ## Quick-access radial menu
 

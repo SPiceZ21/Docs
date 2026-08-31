@@ -17,8 +17,10 @@ directly.
    - **No profile** → `CreateProfile` with `first_time = 1`.
 3. When `first_time == 1` the server fires `SPZ:openCharacterCreation` on the client and
    **withholds** `SPZ:playerReady`.
-4. The player picks a gender, a username, a nation flag and a race number (1–99). Username
+4. The player picks a gender, a username, a nation flag and a race number (1–999). Username
    and race number are both validated for uniqueness server-side.
+5. `fivem-appearance` then opens for face, hair and clothing. Only once it closes does the
+   client ask for its spawn route — see [spz-spawn](spz-spawn.md).
 5. The server stores them, clears `first_time`, then fires `SPZ:characterReady` and
    `SPZ:playerReady`.
 
