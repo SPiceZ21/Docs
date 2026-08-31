@@ -28,10 +28,18 @@ Physics collision and **camera** collision are separate systems in GTA. Turning 
 first lets cars pass through each other; the chase camera still sweeps against the other
 car's bounds and gets shoved into or under your own vehicle as you overlap. Both are
 handled in `spz-core/client/ghost.lua`: pairwise no-collision for the bodies, and a
-per-frame camera-collision guard covering every nearby player car, player ped, and every
-ghosted entity (race bots, duel and raceline ghosts, checkpoint gate props). The camera
-flag lasts exactly one frame, so it is re-asserted every frame — the candidate list behind
-it is rescanned on an interval instead, since entities do not stream in and out that fast.
+per-frame camera-collision guard. The camera flag lasts exactly one frame, so it is
+re-asserted every frame, in two passes with different freshness needs:
+
+- **Players, every frame.** Handles resolved fresh, so a car that streams in alongside you
+  is covered on the frame it appears. This is the pass that matters in a race, where cars
+  close on each other fast enough that a cached list is already stale.
+- **A throttled pool sweep** for what player enumeration cannot see: a ghosted car with
+  nobody in it, a remote ped whose seat has not synced, race bots, duel and raceline
+  ghosts, checkpoint gate props. None of those close on you in a tenth of a second.
+
+NPC traffic is deliberately excluded — those cars really do collide, so the camera should
+collide with them too.
 
 ## Checkpoints and sectors
 
@@ -42,6 +50,18 @@ shows a live +/- split against your best at each checkpoint.
 
 Lap count is derived from measured track length: long circuits run 2 laps, short ones 3.
 
+Every crossing is banked against a progress index (gates cleared since GO), which is what
+lets the tower state gaps in **seconds** rather than "+2 CP": the gap is how long ago the
+car ahead was standing where you are now. It stays a real time across a lap boundary — a
+lapped car reads as the time it is actually down, with a `1L` suffix. `interval` (gap to
+the car directly ahead) is published alongside `gap` (gap to the leader).
+
+**Missing a gate is told to you, not left to be discovered.** The crossing test already
+knows the difference between going through the gate and going past it — same plane flip,
+but wide of the posts — so a miss raises a prompt offering both recoveries by key: `F5` to
+rewind, `F4` to teleport to the last checkpoint you crossed. Without it the first sign of
+trouble is the next gate never arming, and eventually the idle-kick DNF.
+
 Your client decides *when* you crossed — it owns the frame the gate plane was passed, and
 the server cannot see that. The server decides *whether you could have*: a claimed hit is
 rejected unless the checkpoint is the one you were actually due to cross and your ped is
@@ -51,7 +71,7 @@ it never drove.
 
 ## Rewind
 
-Hold `R` to scrub the car backward along its recent path, Forza-style, then release to
+Hold `F5` to scrub the car backward along its recent path, Forza-style, then release to
 resume from that point with the momentum it had. The race clock rewinds with the car, so a
 rewind reads as *undo* rather than *teleport plus penalty*.
 
@@ -69,6 +89,17 @@ credits against a stored time, so the rewind still works but costs exactly what 
 
 A crash or timeout holds your grid slot for 60 seconds. Rejoin inside that window and your
 lap, checkpoint and time are restored at your last checkpoint instead of an instant DNF.
+
+## Overtakes
+
+A completed pass is detected server-side from the live running order. It posts an auto-clip
+to Discord, toasts the whole field, and the **overtaker's car spits nitrous flames** — a
+networked particle, so everyone sees it on that car. Both share one per-pair cooldown
+(`Config.OvertakeCooldown`), so a back-and-forth battle cannot spam either.
+
+The flames are visual only. `Config.OvertakeNos.boost` can add a real Rocket-Voltic speed
+boost on top, and is **off by default**: paying for a pass with pace makes overtaking
+self-reinforcing, which is a racing decision rather than a cosmetic one.
 
 ## Ghost-bots
 
@@ -89,6 +120,11 @@ line, and hotlaps roll continuously: cross the line, the lap banks, the next one
 No stop-start countdown. On circuits the start/finish line is the last checkpoint of the
 lap. Race-join prompts are suppressed inside a time trial.
 
+**Leaving the car ends the run.** A time trial is the car — on foot there is no lap to
+time, and the session would otherwise sit open holding a routing bucket and a spawned
+vehicle. You get a few seconds to climb back in before it ends; getting knocked out of the
+seat or ragdolling does not count while you are still getting back in.
+
 ## Duels
 
 `/duel <player|id> <track> <stake>` — stake credits against an opponent's **stored best
@@ -103,9 +139,18 @@ start voids the duel and refunds the escrow, and a duel against a player with no
 line on that track is rejected up front. Rewind earns no clock credit inside a duel. Every
 duel lands in the `duels` ledger.
 
-## Spectating and betting
+## Watching a race
 
 Anyone not racing can `/spectate` — the viewer is moved into the target's bucket so
-isolated racers stay visible. Non-racers can also `/bet` on a human racer while the
-betting window is open; odds are pure pari-mutuel and shift as bets land and the order
-changes. See [spz-betting](../modules/README.md).
+isolated racers stay visible.
+
+Everyone outside the race also gets a passive **live race board** in the top-right corner:
+the track, the leader's lap, and the running order with real time gaps, ghost-bots marked
+`BOT` and held reconnect slots marked `DC`. It needs no command and takes no input — it
+appears when a race goes live and holds the final classification for a few seconds after
+the flag.
+
+`F7` cycles it between the full board, a three-row mini view, and hidden; `F8` hides or
+restores it outright. Both keys are shown on the board itself and are rebindable, and
+`/raceboard` works from chat. The board lives in [spz-spectate](../modules/README.md) —
+same audience, so it shares that resource rather than adding another.

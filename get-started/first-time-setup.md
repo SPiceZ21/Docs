@@ -47,7 +47,7 @@ to and what may be unlocked. Class definitions are in `shared/classes.lua`.
 
 | Resource | Configure |
 |---|---|
-| `spz-betting/config.lua` | Stakes, rake, betting-window close rule |
+| `spz-spectate/config.lua` | Live race board — rows per view, keys, post-race hold |
 | `spz-speedcam/config.lua` | Detection radius, minimum speed, units, blips |
 | `spz-physics/config.lua` | Powertrain tuning and PP class bands |
 | `spz-fpscap/config.lua` | Frame cap and whether it enforces or only warns |

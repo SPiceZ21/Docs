@@ -65,7 +65,7 @@ ensure spz-speedometer
 ensure spz-vehfunc
 ensure spz-tunners
 ensure spz-spectate
-ensure spz-betting
+ensure spz-spectate
 
 # ── Admin (last) ─────────────────────────────
 ensure vMenu

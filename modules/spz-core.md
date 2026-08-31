@@ -69,9 +69,42 @@ exports['spz-core']:AssignPlayerToBucket(source, bucketId)
 | `SPZ:playerConnected` | Session created |
 | `SPZ:playerDisconnected` | Session teardown |
 
+## Quick-access radial menu
+
+`client/radial.lua` builds a context-aware radial menu on ox_lib (default key
+**Z**, remappable in FiveM's keybind settings; `/menu` opens the same ring).
+
+It is a surface over the existing commands — it drives `/joinrace`, `/timetrail`,
+`/car`, `/customs` and the rest rather than reaching into each resource, so the
+resource that owns a behaviour stays the only place that implements it.
+
+| Ring | Contains |
+|---|---|
+| Racing | Join / leave race or queue, time trial start / restart / quit, last checkpoint, flip car, standings, spectate, race board |
+| Minigames | Hide & Seek, Pursuit, Duel (prompts for a player ID), racing line |
+| Vehicle | Spawn, delete, repair, tune, customs, save build, idle cam |
+| Appearance | Character editor, save outfit, reset outfit |
+| Leaderboard | Full board, last race results |
+| Crew | Crew dashboard, crew radio |
+
+Two rules govern what appears:
+
+1. **Resource must be running.** Each item is gated on `GetResourceState`; a
+   category with nothing left in it is dropped from the root ring entirely.
+2. **Option must be valid now.** Join and Leave share one slot. Recovery and
+   standings appear only while a route is running; vehicle spawn, delete, tune
+   and customs disappear while one is.
+
+Rule 2 means the menu is rebuilt on `inRace` / `inQueue` / `pendingRace` statebag
+changes and on `SPZ:tt:Begin` / `SPZ:tt:End` — no polling. Rebuilding while the
+menu is open refreshes it in place, so Join flips to Leave under the cursor the
+moment the race starts.
+
+Exported as `RefreshRadial` for resources that change what should be offered.
+
 ## Commands
 
-`/spz` · `/status` · `/fix` · `/tpm` · `/time` · `/weather` · `/synctime` · `/syncweather`
+`/spz` · `/status` · `/fix` · `/tpm` · `/menu` · `/time` · `/weather` · `/synctime` · `/syncweather`
 
 ## Dependencies
 

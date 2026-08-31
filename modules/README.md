@@ -21,11 +21,11 @@ worth documenting; the rest are self-contained and documented in their own `READ
 | [spz-progression](spz-progression.md) | `2.1.0` | XP, ranks, SR, iRating, licenses, seasons |
 | spz-leaderboard | `1.0.0` | Standings, class tables, records, activity |
 | spz-poll | `1.1.2` | Track and vehicle vote |
-| spz-raceUI | `2.0.0` | Countdown, overlay, splits, post-race stats |
+| spz-raceUI | `2.0.0` | Countdown, standings tower, splits, post-race stats |
 | spz-raceline | `0.4.0` | Racing-line trainer and ghost car |
 | spz-speedcam | `1.0.0` | Speed cameras and records |
-| spz-betting | `1.0.0` | Live pari-mutuel spectator betting |
-| spz-spectate | `1.0.0` | Spectator overlay |
+
+| spz-spectate | `1.0.0` | Spectator overlay + live race board for freeroamers |
 
 ## Vehicle and driving
 

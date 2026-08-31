@@ -86,7 +86,7 @@ the server's whole uptime.
 | `SPZ:raceStateChanged` | spz-races | Race lifecycle transition (mirrors `GlobalState.raceState`) |
 | `SPZ:racerFinished` | spz-races | One racer crossed the line — reactive use only, field incomplete |
 | `SPZ:raceEnd` | spz-races | Race over, results final. Scoring and persistence hang off this |
-| `SPZ:standings` | spz-races | Live running order for out-of-race consumers (betting, spectator boards) |
+| `SPZ:standings` | spz-races | Live running order for out-of-race consumers (the live race board in spz-spectate) |
 
 `spz-races` also drives lifecycle through `GlobalState.raceState`, which every client reads
 for free. Statebag handlers fire on every *set*, not only on a change, so the transition

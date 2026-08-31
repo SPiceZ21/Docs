@@ -60,6 +60,31 @@ so race time, lap time, sector time and the idle watchdog all follow automatical
 credited total rides through to the results payload as `rewind_ms`; anything non-zero
 disqualifies the time from track records, personal bests and raceline storage.
 
+## Live gaps
+
+Every validated crossing banks the racer's elapsed-since-GO against a **progress index** —
+gates cleared, `(lap - 1) * numCPs + cp` — which keeps counting across a lap boundary and
+is therefore comparable between two racers on different laps.
+
+The gap is then the question a pit wall actually asks:
+
+```
+gap = my elapsed at my current gate − the leader's elapsed at that same gate
+```
+
+so the tower states seconds, not `+2 CP`. A lapped car reads as the real time it is down,
+with `1L` appended — being lapped is a fact a time alone does not convey. Ghost-bots need
+no stored history: their schedule is analytic, so their elapsed at any index is derived
+from their recorded splits.
+
+`SPZ:positionUpdate` and `SPZ:standings` carry both `gap` (to the leader) and `interval`
+(to the car directly ahead), plus `bot` and `dc` (held slot, awaiting reconnect).
+
+A rewind clears every banked crossing at or past the rollback point, so a scrubbed-back
+car is never shown holding a gate it has to re-cross. If either side has no banked crossing
+yet — the first gate of a race, or a racer restored mid-race — the gap falls back to the
+old lap/checkpoint text rather than printing a time that was never measured.
+
 ## Events
 
 Race event names live in `shared/events.lua`, merged into the `SPZ.Events` table that
@@ -76,7 +101,30 @@ Two names are easy to confuse:
 
 `SPZ:raceEnd` must be fired by nothing except `ProcessRaceResults`. Emitting it per
 finisher ran every listener twice per race: double XP/SR/iRating, duplicate `race_results`
-rows, a Discord post per finisher, and the betting pool settling on the first crossing.
+rows, and a Discord post per finisher.
+
+## Race archive
+
+Every finished race has been banked to `race_sessions` + `race_results` since day one,
+but nothing ever read them back per race — the classification of a race you had just
+driven existed in the database and nowhere a player could see it.
+
+`server/leaderboard/archive.lua` is the read side:
+
+| Callback | Returns |
+|---|---|
+| `spz-races:getRaceArchive` | Recent races, newest first, with the winner resolved in the same query |
+| `spz-races:getRaceResults` | One race in full — finishers in position order, then retirements |
+
+Gaps to the winner are computed server-side so every consumer shows the same number, and a
+finished race is immutable so its classification caches hard (5 min). The archive list
+caches for 15 s and is busted on `SPZ:raceEnd`, because a player pressing the results key
+at the post-race screen is the main way it gets read.
+
+A race where everybody retired still appears — those are exactly the ones people look up
+afterwards — so the winner join is a LEFT JOIN and `winner` comes back `nil`.
+
+`spz-leaderboard` renders both as the **Races** tab.
 
 ## Dependencies
 
