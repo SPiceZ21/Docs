@@ -40,6 +40,37 @@ client                  acts on the route, streams the world behind a cover,
 One request, one reply. No polling, and a failure surfaces as a message rather than an
 indefinite wait.
 
+## Character creation
+
+Two acts, in this order:
+
+1. **Build** — pick a base model, then open the full appearance editor.
+2. **Name** — alias, nation, race number.
+
+Building comes first on purpose. Naming something you cannot see is an abstract form;
+naming a racer standing in front of you is a decision. The ped is **live and visible**
+behind the panel throughout — it used to be hidden for the whole of creation, so players
+chose a model, a name, a nation and a number for someone they never saw.
+
+The panel is docked to the left rather than centred for the same reason: a centred modal
+covers the only thing worth looking at. The scrim is a one-sided gradient — readable on
+the left, fully clear by mid-screen.
+
+| Callback | Effect |
+|---|---|
+| `previewGender` | Swaps the live ped to the chosen base model, re-places and re-poses it |
+| `openAppearanceStep` | Hands the screen to `fivem-appearance`, returns on close |
+| `submitCharacterCreation` | Writes the profile — appearance is already done by then |
+
+Handing off to the editor sends `creationPause`, **not** `hide`: the UI holds the model
+choice and which act it is in, and the editor can be open for minutes. Unmounting it would
+silently reset both. `SPZ:appearanceCustomizationDone` rebuilds the preview scene and sends
+`appearanceStepDone`, which advances the UI to naming — an event, not a timer.
+
+Nation is a search combobox with flags rather than a native `<select>`, which with seventy
+entries offered no search, no flag, clipped the chosen name inside the control, and drew an
+OS dropdown in the middle of the game.
+
 ### First-time players
 
 `SPZ:playerReady` means *this player has a usable identity*, and seven resources act on it.
@@ -50,6 +81,44 @@ then firing again.
 
 After the appearance editor closes the client calls `SPZ:spawn:requestMenu`, and the same
 routing decision now answers `menu` because `first_time` is `0`.
+
+## Spawn menu
+
+Composed as a shot rather than a page. The ped and the world behind it are the subject, so
+the UI is furniture around the frame edges and the middle stays clear — three anchors, no
+floating boxes: **who you are** (top-left), **where you are going** (bottom-left), **the
+commitment** (bottom-right).
+
+**Cinematic bars** slide in from off-frame and crop the shot. Height is in `vh`, so the crop
+is proportional at any resolution instead of a fixed band that swallows 720p and vanishes on
+1440p. No trim on the inner edge — a letterbox is a crop, not a component; an accent line
+along it turns the bars into a UI frame.
+
+The vignette is **legibility insurance, not mood**. The backdrop is whatever the world
+happens to be behind the ped, and white 300-weight display type disappears completely into a
+midday Los Santos sky. Layered gradients guarantee dark ground under every anchor, and the
+display type carries its own text shadow as a second line of defence.
+
+Destination uses segments rather than dots (dots stop scanning past about five) and **cuts**
+between names rather than cross-fading — faster to read, and it matches the camera language.
+
+## Cinematic camera
+
+A slow orbit with a **handheld** feel: the operator is breathing and shifting weight, so the
+frame wanders slightly. Not shake — shake reads as an explosion.
+
+The wander is summed sine waves at deliberately incommensurate frequencies, not random
+jitter. Random per-frame values buzz; sines whose periods never line up produce a path that
+keeps wandering without visibly repeating, and it is smooth by construction so it can never
+pop between frames. Translation is in centimetres; the rotational sway is larger, applied by
+nudging the *look-at point* rather than setting camera rotation — same effect, no matrix
+work, and it cannot fight `PointCamAtCoord`. FOV breathes under a degree, because a perfectly
+locked focal length reads as CG.
+
+Everything is driven by **wall time**, not per-frame increments. The previous orbit advanced
+a fixed amount each frame, so it ran at whatever the client's framerate happened to be: a
+144 Hz machine orbited nearly 2.4× faster than a 60 Hz one, and any frame hitch jerked the
+camera.
 
 ## Loading screen handoff
 
