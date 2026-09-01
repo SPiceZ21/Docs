@@ -73,12 +73,10 @@ gap = my elapsed at my current gate − the leader's elapsed at that same gate
 ```
 
 so the tower states seconds, not `+2 CP`. A lapped car reads as the real time it is down,
-with `1L` appended — being lapped is a fact a time alone does not convey. Ghost-bots need
-no stored history: their schedule is analytic, so their elapsed at any index is derived
-from their recorded splits.
+with `1L` appended — being lapped is a fact a time alone does not convey.
 
 `SPZ:positionUpdate` and `SPZ:standings` carry both `gap` (to the leader) and `interval`
-(to the car directly ahead), plus `bot` and `dc` (held slot, awaiting reconnect).
+(to the car directly ahead), plus `dc` (held slot, awaiting reconnect).
 
 A rewind clears every banked crossing at or past the rollback point, so a scrubbed-back
 car is never shown holding a gate it has to re-cross. If either side has no banked crossing

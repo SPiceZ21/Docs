@@ -11,8 +11,6 @@ five separate things.
 | **iRating** | Relative pace against the field, Elo-style |
 | **License** | The unlock gate for higher classes: C → B → A → S |
 
-Ghost-bots are excluded from all of it — you are only ever scored against humans.
-
 ## Licenses
 
 License tier is stored on the profile as `license_tier` (`0 = C`, `1 = B`, `2 = A`,

@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Architecture](architecture.md)
+* [Keybind registry](keybinds.md)
 
 ## Getting Started
 

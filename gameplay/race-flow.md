@@ -111,8 +111,8 @@ with the same split:
   is covered on the frame it appears. This is the pass that matters in a race, where cars
   close on each other fast enough that a cached list is already stale.
 - **A throttled pool sweep** for what player enumeration cannot see: a ghosted car with
-  nobody in it, a remote ped whose seat has not synced, race bots, duel and raceline
-  ghosts, checkpoint gate props. None of those close on you in a tenth of a second.
+  nobody in it, a remote ped whose seat has not synced, duel and raceline ghosts,
+  checkpoint gate props. None of those close on you in a tenth of a second.
 
 NPC traffic is deliberately excluded — those cars really do collide, so the camera should
 collide with them too.
@@ -264,8 +264,8 @@ back past still has to be re-crossed for real.
 
 **A rewound run is not a record.** Any run that credits even a millisecond back is barred
 from track records and personal bests, and its driven line is not stored — those lines are
-replayed as ghost-bots and used as duel targets, so a refunded lap would seed a ghost
-nobody can beat. Rewinding inside a **duel** earns no clock credit at all: duels pay real
+replayed as the time-trial ghost and used as duel targets, so a refunded lap would seed a
+ghost nobody can beat. Rewinding inside a **duel** earns no clock credit at all: duels pay real
 credits against a stored time, so the rewind still works but costs exactly what it costs.
 
 ## Reconnecting
@@ -283,18 +283,6 @@ networked particle, so everyone sees it on that car. Both share one per-pair coo
 The flames are visual only. `Config.OvertakeNos.boost` can add a real Rocket-Voltic speed
 boost on top, and is **off by default**: paying for a pass with pace makes overtaking
 self-reinforcing, which is a racing decision rather than a cosmetic one.
-
-## Ghost-bots
-
-Thin grids are backfilled to `Config.Bots.targetField` (default 6) with real stored human
-lines from [spz-raceline](../modules/README.md), replayed as solid, non-collidable cars at
-a mixed pace spread. The server simulates their progress from recorded checkpoint splits;
-clients replay them locally off the GO clock, so there is no per-frame network cost.
-
-Bots appear in the standings tower and on the map as grey `[BOT]` blips and push your
-visible position, but they are **never** in `results.finishers` and grant no rewards —
-humans are scored only against humans. A track needs at least one stored line before bots
-can run it.
 
 ## Time trial
 
@@ -328,8 +316,8 @@ Anyone not racing can `/spectate` — the viewer is moved into the target's buck
 isolated racers stay visible.
 
 Everyone outside the race also gets a passive **live race board** in the top-right corner:
-the track, the leader's lap, and the running order with real time gaps, ghost-bots marked
-`BOT` and held reconnect slots marked `DC`. It needs no command and takes no input — it
+the track, the leader's lap, and the running order with real time gaps, and held
+reconnect slots marked `DC`. It needs no command and takes no input — it
 appears when a race goes live and holds the final classification for a few seconds after
 the flag.
 
