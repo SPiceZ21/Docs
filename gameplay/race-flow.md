@@ -228,8 +228,10 @@ first checkpoint of a race can be scored at all.
 
 **Missing a gate is told to you, not left to be discovered.** The crossing test already
 knows the difference between going through the gate and going past it — same plane flip,
-but wide of the posts — so a miss raises a prompt offering both recoveries by key: `F5` to
-rewind, `F4` to teleport to the last checkpoint you crossed. Without it the first sign of
+but wide of the posts — so a miss raises a prompt offering both recoveries by key: `B` to
+rewind, `F4` to teleport to the last checkpoint you crossed. Both keys come from config
+(`Config.Rewind.key`, `Config.RecoverKey`), so the prompt can never name a key that does
+something else. Without it the first sign of
 trouble is the next gate never arming, and eventually the idle-kick DNF.
 
 A miss also requires being **near** the gate: within one gate-width of a post. The plane
@@ -254,7 +256,7 @@ it never drove.
 
 ## Rewind
 
-Hold `F5` to scrub the car backward along its recent path, Forza-style, then release to
+Hold `B` to scrub the car backward along its recent path, Forza-style, then release to
 resume from that point with the momentum it had. The race clock rewinds with the car, so a
 rewind reads as *undo* rather than *teleport plus penalty*.
 
@@ -262,11 +264,15 @@ Bounded by the rolling history buffer (10 s) and by a server-side ceiling on how
 a single lap can win back (`Config.Rewind.maxCreditPerLapMs`, 15 s). Every gate you scrub
 back past still has to be re-crossed for real.
 
+**Races only.** Time trial has no rewind: the key does nothing, no path is recorded and
+no allowance is shown on the dash. The clock is the whole point of that mode, and a TT lap
+feeds the stored line, the ghost and duel targets — a refunded lap there would seed a
+target nobody can match honestly.
+
 **A rewound run is not a record.** Any run that credits even a millisecond back is barred
-from track records and personal bests, and its driven line is not stored — those lines are
-replayed as the time-trial ghost and used as duel targets, so a refunded lap would seed a
-ghost nobody can beat. Rewinding inside a **duel** earns no clock credit at all: duels pay real
-credits against a stored time, so the rewind still works but costs exactly what it costs.
+from track records and personal bests, and its driven line is not stored. Rewinding inside
+a **duel** earns no clock credit at all: duels pay real credits against a stored time, so
+the rewind still works but costs exactly what it costs.
 
 ## Reconnecting
 
