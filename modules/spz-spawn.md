@@ -1,6 +1,6 @@
 # spz-spawn
 
-> Play menu, spawn points, world entry · `v2.2.0`
+> Play menu, spawn points, world entry · `v1.1.0`
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # spz-physics
 
-> Powertrain simulation, tire compounds, PP rating, drift scoring · `v0.4.0`
+> Powertrain simulation, tire compounds, PP rating, drift scoring · `v1.4.0`
 
 ## Overview
 

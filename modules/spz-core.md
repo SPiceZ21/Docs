@@ -1,6 +1,6 @@
 # spz-core
 
-> Framework bootstrap, sessions, routing buckets, config and schema · `v2.0.0`
+> Framework bootstrap, sessions, routing buckets, config and schema · `v1.0.0`
 
 ## Overview
 

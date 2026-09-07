@@ -7,22 +7,22 @@ worth documenting; the rest are self-contained and documented in their own `READ
 
 | Module | Version | Purpose |
 |---|---|---|
-| [spz-core](spz-core.md) | `2.0.0` | Bootstrap, sessions, routing buckets, permissions, migrations |
+| [spz-core](spz-core.md) | `1.0.0` | Bootstrap, sessions, routing buckets, permissions, migrations |
 | [spz-identity](spz-identity.md) | `1.5.0` | Profiles, citizen IDs, licenses, crews, character creation |
-| spz-appearance | `2.0.0` | Ped models, personal outfits, crew uniforms |
-| [spz-spawn](spz-spawn.md) | `2.1.0` | Play menu, spawn points, world entry |
-| [spz-vehicles](spz-vehicles.md) | `2.0.0` | Vehicle registry, classes, spawning, upgrades |
+| spz-appearance | `1.0.0` | Ped models, personal outfits, crew uniforms |
+| [spz-spawn](spz-spawn.md) | `1.1.0` | Play menu, spawn points, world entry |
+| [spz-vehicles](spz-vehicles.md) | `1.0.0` | Vehicle registry, classes, spawning, upgrades |
 
 ## Racing
 
 | Module | Version | Purpose |
 |---|---|---|
 | [spz-races](spz-races.md) | `1.9.0` | Race engine — queue, poll, countdown, checkpoints, results |
-| [spz-progression](spz-progression.md) | `2.1.0` | XP, ranks, SR, iRating, licenses, seasons |
-| spz-leaderboard | `1.0.0` | Standings, class tables, records, activity |
+| [spz-progression](spz-progression.md) | `1.1.0` | XP, ranks, SR, iRating, licenses, seasons |
+| spz-leaderboard | `1.1.0` | Standings, class tables, records, activity |
 | spz-poll | `1.1.2` | Track and vehicle vote |
-| spz-raceUI | `2.0.0` | Countdown, standings tower, splits, post-race stats |
-| spz-raceline | `0.4.0` | Racing-line trainer and ghost car |
+| spz-raceUI | `1.0.0` | Countdown, standings tower, splits, post-race stats |
+| spz-raceline | `1.4.0` | Racing-line trainer and ghost car |
 | spz-speedcam | `1.0.0` | Speed cameras and records |
 
 | spz-spectate | `1.0.0` | Spectator overlay + live race board for freeroamers |
@@ -31,7 +31,7 @@ worth documenting; the rest are self-contained and documented in their own `READ
 
 | Module | Version | Purpose |
 |---|---|---|
-| [spz-physics](spz-physics.md) | `0.4.0` | Powertrain sim, tire compounds, PP rating, drift scoring |
+| [spz-physics](spz-physics.md) | `1.4.0` | Powertrain sim, tire compounds, PP rating, drift scoring |
 | spz-tunners | `1.0.0` | Keyboard tuning menu |
 | spz-carspawner | `1.1.0` | Vehicle spawn menu |
 | spz-carfx | `1.0.0` | Particle effects (assets only) |
@@ -48,4 +48,4 @@ worth documenting; the rest are self-contained and documented in their own `READ
 | spz-loading | `1.2.1` | Loading screen |
 | spz-rpc | `1.0.1` | Discord rich presence |
 | spz-log | `1.0.1` | Discord webhook logging |
-| spz-ui | `2.0.0` | Shared NUI design system |
+| spz-ui | `1.0.0` | Shared NUI design system |

@@ -1,6 +1,6 @@
 # spz-progression
 
-> XP, ranks, Safety Rating, iRating, license promotion, seasons · `v2.1.0`
+> XP, ranks, Safety Rating, iRating, license promotion, seasons · `v1.1.0`
 
 ## Overview
 

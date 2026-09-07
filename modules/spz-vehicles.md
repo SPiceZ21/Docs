@@ -1,6 +1,6 @@
 # spz-vehicles
 
-> Vehicle registry, classes, spawning, upgrades, customization · `v2.0.0`
+> Vehicle registry, classes, spawning, upgrades, customization · `v1.0.0`
 
 ## Overview
 
