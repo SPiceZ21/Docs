@@ -126,47 +126,29 @@ shows a live +/- split against your best at each checkpoint.
 
 Lap count is derived from measured track length: long circuits run 2 laps, short ones 3.
 
-**The turn guide** floats over the road ahead of your car, anchored in world space so it
-travels with you rather than sitting in a screen corner. It calls the turn you make **at**
-the next gate — not the direction of the gate itself, which the blips and props already
-show — along with the distance to it and your speed.
+**The CP distance pill** is pinned to the checkpoint with a stem down to the gate point,
+answering *where is the gate*. Useful on an unfamiliar track or when a gate sits behind
+geometry. It is **on by default**.
 
-The angle comes from the two legs of the route: the one you are driving (car → next gate)
-against the one after it (next gate → the gate beyond). Bands: under 12° is straight, under
-40° slight, under 100° a plain left/right, under 150° hard, beyond that a U-turn. The arrow
-is rotated by the **real** angle rather than picked from a few fixed glyphs, so a kink and a
-hairpin do not draw the same picture.
+### Turning it on and off
 
-The cluster mirrors around the arrow — right turns put the arrow right and the speed left,
-left turns flip both — so the layout points the way before a word of it is read. Inside 40 m
-it goes accent-coloured: the call has stopped being advice and become an instruction.
-
-**The CP distance pill** is the other half of the pair: pinned to the checkpoint with a stem
-down to the gate point, it answers *where is the gate* rather than *what does the road do*.
-Still useful on an unfamiliar track or when a gate sits behind geometry, but its distance
-duplicates the guide's when both run, so it is **off by default**.
-
-### Turning them on and off
-
-Both are server-controlled, independently. Defaults live in `spz-races/config.lua`:
+It is server-controlled. The default lives in `spz-races/config.lua`:
 
 ```lua
 Config.Hud = {
-  TurnGuide      = true,
-  CpDistancePill = false,
+  CpDistancePill = true,
 }
 ```
 
-Either can be overridden live from `server.cfg` without editing the file or restarting the
+It can be overridden live from `server.cfg` without editing the file or restarting the
 resource — the convar wins when set:
 
 ```
-setr spz_hud_turn_guide 1
 setr spz_hud_cp_pill 0
 ```
 
-`/racehud` (admin, or the server console) re-reads the convars and republishes. The flags
-travel in `GlobalState`, so a change reaches every connected client immediately; nobody has
+`/racehud` (admin, or the server console) re-reads the convar and republishes. The flag
+travels in `GlobalState`, so a change reaches every connected client immediately; nobody has
 to reconnect.
 
 An unset convar is told apart from one explicitly set to `0` by reading it as a string with
@@ -174,9 +156,9 @@ a sentinel default — `GetConvarInt` cannot express that difference, since it r
 both "off" and "absent", which would silently override the config file with a value nobody
 set.
 
-The client sends only the half the server has enabled, so a disabled readout costs no
-projection work and its absence from the payload *is* the off switch — there is no separate
-visibility flag that could drift out of step.
+The client sends the sub-object only when the server has the readout enabled, so a disabled
+readout costs no projection work and its absence from the payload *is* the off switch —
+there is no separate visibility flag that could drift out of step.
 
 **The map shows three gates ahead**, not one: the gate you are driving at, plus the two
 after it. They stay numbered and fade with distance ahead so the order reads at a glance,
