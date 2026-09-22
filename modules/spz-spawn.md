@@ -145,6 +145,21 @@ another and never sees raw world streaming.
 | `SPZ:showPlayMenu` | local | Open the menu with player metadata |
 | `SPZ:spawnPlayerTarget` | server → client | Perform the physical spawn — model, teleport, resurrect |
 
+## Spawn state
+
+Two **client-local** statebags (never replicated — the server already knows) say where the
+player is in the entry flow, so always-on HUDs can stay off the menu:
+
+| Bag | Meaning |
+|---|---|
+| `LocalPlayer.state.spawned` | `false` until the first `SPZ:spawnPlayerTarget` completes |
+| `LocalPlayer.state.spawnMenuOpen` | `true` while the play menu or character creation owns the screen |
+
+Both read as nil when `spz-spawn` is not running, and consumers treat nil as *in the world*
+so nothing disappears on a server without this module. The passive race board
+(`spz-spectate`) and the chat log (`spz-chat`) both gate on these — they used to paint over
+the menu and over the moment the loading screen came down.
+
 `SPZ:requestPlayMenu` is kept as an alias for `SPZ:spawn:requestMenu` so older callers
 keep working; both route through the same decision.
 
