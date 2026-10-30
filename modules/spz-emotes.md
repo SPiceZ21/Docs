@@ -8,6 +8,8 @@
 
 `O` opens an emote menu with search, categories, favourites and animated previews. `/e <name>` plays one directly, `X` stops it. Shared emotes (handshake, hug, high five) ask the nearest player to accept.
 
+![Emote menu with animated previews](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/emote-menu.jpg)
+
 ## Features
 
 - ~100 base-game emotes

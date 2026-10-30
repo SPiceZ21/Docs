@@ -8,6 +8,8 @@
 
 A minimal loading screen in the server theme. After the game loads it shows the second phase too — contacting the server, loading the profile, streaming the world — and owns taking the screen down, with a watchdog so it can never hang.
 
+![Loading screen](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/loading-screen.jpg)
+
 ## Features
 
 - Two-phase progress (engine load + SPZ boot stages)

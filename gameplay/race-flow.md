@@ -73,6 +73,12 @@ flowchart LR
     B -- no --> F[Queued for the next race]
 ```
 
+### On screen
+
+![Race HUD: standings, sectors, warmup timer, track and lap / time readouts](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-hud.jpg)
+
+![Grid countdown](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-countdown.jpg)
+
 ## Isolation
 
 Each race runs in its own routing bucket, so racers never see free-roam traffic. Players
