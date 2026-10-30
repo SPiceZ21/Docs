@@ -10,6 +10,10 @@ Replaces the default chat. `T` opens it; messages go to global, crew or direct c
 
 ![Chat: global, crew and DM](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat.jpg)
 
+![Chat emoji picker](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-emoji.jpg)
+
+![Chat GIF picker (GIPHY)](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-gif.jpg)
+
 ## Features
 
 - Global, crew and DM channels

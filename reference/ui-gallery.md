@@ -38,6 +38,10 @@ Every SPiceZ-Core screen, captured from the UI with sample data over a game back
 
 ![Chat: global, crew and DM — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat.jpg)
 
+![Chat emoji picker — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-emoji.jpg)
+
+![Chat GIF picker (GIPHY) — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-gif.jpg)
+
 ![Crew dashboard — spz-crew](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/crew.jpg)
 
 ![Emote menu with animated previews — spz-emotes](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/emote-menu.jpg)

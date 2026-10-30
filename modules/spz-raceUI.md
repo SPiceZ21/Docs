@@ -9,6 +9,7 @@
 Everything drawn during a race: the intro cover and briefing, countdown, lap/sector/position HUD, standings list, finish window, post-race stats, and the freeroam lobby pill ("E JOIN RACE" / "JOIN WARMUP").
 
 
+
 ![Race HUD: standings, sectors, warmup timer, lap and time](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-hud.jpg)
 
 ![Grid countdown](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-countdown.jpg)
