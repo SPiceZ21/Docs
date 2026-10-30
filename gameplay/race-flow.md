@@ -5,6 +5,21 @@ no minimum player count — the first person to queue starts the clock.
 
 ## The cycle
 
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> POLLING: first player queues
+    POLLING --> WAITING: vote closes
+    WAITING --> WARMUP: grid spawned
+    WARMUP --> COUNTDOWN: warmup ends
+    COUNTDOWN --> LIVE: GO
+    LIVE --> ENDED: all finished / DNF
+    ENDED --> CLEANUP: results shown
+    CLEANUP --> IDLE: bucket released
+    WARMUP --> IDLE: everyone left
+```
+
+
 | Phase | What happens |
 |---|---|
 | **Idle** | Nobody queued. The first `/joinrace` arms a dynamic join window. |
@@ -17,6 +32,46 @@ no minimum player count — the first person to queue starts the clock.
 | **Results + intermission** | Run in parallel; the next join window arms immediately. |
 
 Post-race overlap cuts what used to be ~110 s of dead time to roughly 60 s.
+
+### One race, end to end
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor R as Racer
+    participant RS as spz-races (server)
+    participant PL as spz-poll
+    participant V as spz-vehicles
+    participant UI as spz-raceUI
+    participant PR as spz-progression
+    R->>RS: /joinrace or E
+    RS->>PL: start vote (tracks + classes)
+    PL-->>RS: winning track and class
+    RS->>RS: create routing bucket
+    RS->>V: SpawnRaceVehicle (grid slot)
+    V-->>RS: spawn confirmed
+    RS->>UI: warmup timer · intro cover
+    RS->>UI: countdown 3-2-1 · GO
+    loop each checkpoint
+        R->>RS: crossed gate (client proposes)
+        RS->>RS: validate + time it (server decides)
+        RS->>UI: position · lap · sector
+    end
+    RS-->>PR: SPZ:raceEnd (final results)
+    PR-->>UI: XP · SR · iRating · RP deltas
+    RS->>R: back to freeroam
+```
+
+### Joining during warmup
+
+```mermaid
+flowchart LR
+    A[Freeroam player] --> B{Warmup open<br/>and over 20 s left?}
+    B -- yes --> C["JOIN WARMUP pill · press E"]
+    C --> D[Next grid slot<br/>race-start ring rebuilt]
+    D --> E[Car spawned · warmup HUD]
+    B -- no --> F[Queued for the next race]
+```
 
 ## Isolation
 

@@ -8,6 +8,18 @@
 
 One menu (`F7`, or the NPCs at the hub) to queue, create rooms, invite and start every minigame, plus the in-game HUD they all draw with.
 
+```mermaid
+flowchart LR
+    H["Hub (F7) or hub NPC"] --> Q{Quick join<br/>or room?}
+    Q -- quick --> L[Lobby queue]
+    Q -- room --> RM[Create / join room<br/>invite friends]
+    L --> S[Start]
+    RM --> S
+    S --> B[Private bucket<br/>round-based play]
+    B --> W[Winner paid out]
+    W --> RT[Back to the hub return point]
+```
+
 ## Features
 
 - Hub for Color Rush, Cyclone, Bomb Tag, Demolition and Hot Pursuit

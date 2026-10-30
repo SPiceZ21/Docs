@@ -22,6 +22,15 @@
 The recipe downloads every dependency and module and writes `server.cfg` in the right
 order. Nothing else is needed — the database schema builds itself on first boot.
 
+```mermaid
+flowchart LR
+    A[txAdmin<br/>Remote URL Template] --> B[Recipe downloads<br/>deps + every module]
+    B --> C[Writes server.cfg<br/>and permissions.cfg]
+    C --> D[Start server]
+    D --> E[spz-core applies<br/>migrations]
+    E --> F[Ready]
+```
+
 ## Option B — manual
 
 Download each module from [github.com/SPiceZ21](https://github.com/SPiceZ21) into

@@ -2,21 +2,18 @@
 
 ## Layers
 
+```mermaid
+flowchart TD
+    deps["oxmysql · ox_lib · fivem-appearance"] --> core["spz-core<br/>sessions · buckets · migrations · theme"]
+    core --> identity["spz-identity"] & appearance["spz-appearance"] & spawn["spz-spawn"]
+    identity --> vehicles["spz-vehicles"]
+    vehicles --> races["spz-races<br/>race engine"]
+    races --> prog["spz-progression"] & ui["spz-raceUI"] & poll["spz-poll"] & lb["spz-leaderboard"]
+    races --> spectate["spz-spectate"] & replay["spz-replay"] & raceline["spz-raceline"]
+    core --> hub["spz-minigames"]
+    hub --> games["Color Rush · Cyclone · Bomb Tag<br/>Demolition · Hot Pursuit"]
 ```
-oxmysql · ox_lib · fivem-appearance          third-party dependencies
-        │
-     spz-core                                sessions · buckets · migrations · config
-        │
-   ┌────┴─────┬──────────────┐
-spz-identity  spz-appearance  spz-spawn      player layer
-        │
-   spz-vehicles                              vehicle registry
-        │
-    spz-races                                race engine (server-authoritative)
-        │
-   ┌────┴──────┬──────────────┬────────────┐
-spz-progression spz-raceUI  spz-leaderboard  spz-poll ...
-```
+
 
 Load order follows this diagram. A module started before its dependencies will not find
 their exports.
@@ -60,6 +57,26 @@ to clients by `spz-core/client/config_sync.lua`.
 4. `spz-identity` resolves or creates the profile, then fires `SPZ:playerReady` (or
    `SPZ:openCharacterCreation` first, for new players).
 5. `spz-spawn` shows the play menu and puts the player in the world.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant P as Player
+    participant C as spz-core
+    participant I as spz-identity
+    participant S as spz-spawn
+    Note over C: boot: migrations → SPZ:coreReady
+    P->>C: connect
+    C->>C: create session
+    C-->>I: SPZ:playerConnected
+    I->>I: load or create profile
+    alt new player
+        I-->>S: SPZ:openCharacterCreation
+        S->>P: character creator
+    end
+    I-->>S: SPZ:playerReady
+    S->>P: play menu → into the world
+```
 
 ## Routing buckets
 

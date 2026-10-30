@@ -9,6 +9,17 @@ Every finished race feeds [spz-progression](../modules/spz-progression.md).
 | **Safety Rating (SR)** | Clean driving — incidents and contact push it down (daily caps) |
 | **iRating** | Relative pace against the field, zero-sum Elo; used for rivals |
 
+```mermaid
+flowchart LR
+    R[Race result] --> X[XP and level]
+    R --> SR[Safety rating<br/>incidents]
+    R --> IR[iRating<br/>vs the field]
+    R --> RP[Rank points<br/>percentile · field strength]
+    RP --> T["Rank C-5 … S-1"]
+    T --> L[Licence letter C–S]
+    IR --> RV[Rivals]
+```
+
 ## Rank (ranking v3)
 
 Rank is one number, **Rank Points**, looked up in a 20-rung table (C 0 / B 250 / A 1,150 /
