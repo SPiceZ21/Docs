@@ -1,40 +1,30 @@
-# Progression and licensing
+# Progression and rank
 
-Every finished race feeds [spz-progression](../modules/spz-progression.md), which updates
-five separate things.
+Every finished race feeds [spz-progression](../modules/spz-progression.md).
 
 | System | Meaning |
 |---|---|
-| **XP / level** | Participation and performance over time |
-| **Championship points** | Finishing position, from the shared points table |
-| **Safety Rating (SR)** | Clean driving — incidents and contact push it down |
-| **iRating** | Relative pace against the field, Elo-style |
-| **License** | The unlock gate for higher classes: C → B → A → S |
+| **Rank (RP)** | `C-5` … `S-1`, derived from Rank Points. Display and prestige only |
+| **XP / level** | Reward for playing |
+| **Safety Rating (SR)** | Clean driving — incidents and contact push it down (daily caps) |
+| **iRating** | Relative pace against the field, zero-sum Elo; used for rivals |
 
-## Licenses
+## Rank (ranking v3)
 
-License tier is stored on the profile as `license_tier` (`0 = C`, `1 = B`, `2 = A`,
-`3 = S`). Promotion is evaluated after each race against the criteria in
-`spz-progression/shared/licenses.lua`; unlocks are granted through
-`spz-identity:UnlockLicense` and recorded in the license history.
+Rank is one number, **Rank Points**, looked up in a 20-rung table (C 0 / B 250 / A 1,150 /
+S 3,850 RP to enter; steps of 50 / 180 / 540 / 1,000 between sub-ranks). After each
+**rated** race (2+ players) each player gets one RP delta from their finishing percentile,
+the field size, and the field's strength relative to them, plus small supports (clean race,
+streak, perfect lap, track record). RP never drops below the floor of your current class, and
+positive RP is capped at +300 per day. There is no limit on field size.
 
-Vehicle classes are gated by tier, so a license is what opens faster cars rather than a
-purchase.
+`license_tier` (`0 = C` … `3 = S`) is just the stored class letter, derived from RP and
+written through `spz-identity:UnlockLicense`. **Nothing gates cars, tracks or classes on it.**
 
 ## Vehicle classes
 
 Race classes only — Coupes, Muscle, Sports Classics, Sports, Super, Open Wheel. Civilian,
 service, utility and prop vehicles are not spawnable.
-
-Classes can also be balanced by PP, the 0–1000 performance number computed by
-[spz-physics](../modules/spz-physics.md) from power, weight and grip:
-
-| Class | PP |
-|---|---|
-| C | ≤ 450 |
-| B | ≤ 600 |
-| A | ≤ 750 |
-| S | ≤ 1000 |
 
 ## Rivals
 

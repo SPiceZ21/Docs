@@ -1,71 +1,81 @@
 # spz-identity
 
-> Player profiles, citizen IDs, licenses, ranks, crews · `v1.5.0`
+> Player profiles, licences, crews and vanity plates.
+
+![version](https://img.shields.io/badge/version-1.8.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
 ## Overview
 
-The player data layer. It resolves a connecting player to a profile, runs first-time
-character creation, and owns usernames, citizen IDs, license tiers, ranks, ratings and
-crews. Other modules read player data through its exports, never from the `players` table
-directly.
+Creates and caches each player's profile on join and exposes it to every other module through exports and statebags. Also owns driver licences (the C–S class letter), the crew backend and personal number plates.
 
-## Connection and creation flow
+## Features
 
-1. `spz-core` fires `SPZ:playerConnected`.
-2. Identity looks the player up by license.
-   - **Existing profile** with `first_time = 0` → cache warmed, `SPZ:playerReady` fires.
-   - **No profile** → `CreateProfile` with `first_time = 1`.
-3. When `first_time == 1` the server fires `SPZ:openCharacterCreation` on the client and
-   **withholds** `SPZ:playerReady`.
-4. The player picks a gender, a username, a nation flag and a race number (1–999). Username
-   and race number are both validated for uniqueness server-side.
-5. `fivem-appearance` then opens for face, hair and clothing. Only once it closes does the
-   client ask for its spawn route — see [spz-spawn](spz-spawn.md).
-5. The server stores them, clears `first_time`, then fires `SPZ:characterReady` and
-   `SPZ:playerReady`.
+- Profile created on first join, cached for the session
+- Licence class letter (C to S) derived from rank points
+- Crew create / join / leave backend (UI is spz-crew)
+- Personal vanity plates
+- Optional Discord linking
 
-Flag and race number appear on nametags and in the standings tower; flags ship as local
-assets rather than being fetched from a CDN.
+## Requirements
 
-Modules that need player data must wait for `SPZ:playerReady`, not `SPZ:playerConnected`.
+| Resource | Type |
+|---|---|
+| `ox_lib` | third-party |
+| `spz-core` | SPiceZ module |
+| `oxmysql` | third-party |
+
+## Installation
+
+Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
+
+1. Download `spz-identity` from GitHub (latest release, or the repository) into your `resources` folder.
+2. Add to `server.cfg`, after its requirements:
+
+```cfg
+ensure spz-identity
+```
+
+## Configuration
+
+- `config.lua`
+
+See the file for every option.
+
+## Commands
+
+| Command | Who | Description |
+|---|---|---|
+| `/plate` | player | Set your personal plate |
+| `/refreshdiscord` | player | Re-sync your Discord name/avatar (admins: for a player id) |
 
 ## Exports
 
-| Group | Exports |
+| Export | Side |
 |---|---|
-| Profile | `GetProfile` · `CreateProfile` · `UpdateProfile` · `SaveProfile` · `GetClientProfile` · `GetSyncSubset` · `SetPlayerState` |
-| Identity | `GetCitizenId` · `GetByCitizenId` · `GetUsername` · `GetPlatformName` · `GetPlaytime` |
-| Licenses | `HasLicense` · `GetLicenseTier` · `UnlockLicense` · `GetLicenseHistory` |
-| Ranks | `GetRankName` |
-| Crews | `CreateCrew` · `JoinCrew` · `LeaveCrew` · `GetCrew` · `GetCrewTag` · `GetOnlineCrewMembers` · `GetCrewCooldownSeconds` |
-| Admin | `BanPlayer` |
+| `AttachProfile` | server |
+| `CreateCrew` | server |
+| `GetClientProfile` | client |
+| `GetCrew` | server |
+| `GetCrewCooldownSeconds` | server |
+| `GetOnlineCrewMembers` | server |
+| `GetPlate` | server |
+| `GetPlatformName` | server |
+| `GetPlaytime` | server |
+| `GetProfile` | server |
+| `GetRankName` | server |
+| `GetSyncSubset` | server |
+| `JoinCrew` | server |
+| `LeaveCrew` | server |
+| `NormalisePlate` | server |
+| `PrepareProfile` | server |
+| `SetPlate` | server |
+| `UnlockLicense` | server |
+| `UpdateProfile` | server |
 
 ```lua
-local profile = exports['spz-identity']:GetProfile(source)
-local tier    = exports['spz-identity']:GetLicenseTier(source)
+exports["spz-identity"]:AttachProfile(...)
 ```
 
-## Events
+---
 
-| Event | Side | Meaning |
-|---|---|---|
-| `SPZ:openCharacterCreation` | Client | New player — open the creation form |
-| `SPZ:characterCreated` | Server | NUI submitted gender and username |
-| `SPZ:characterReady` | Server | Profile initialised |
-| `SPZ:playerReady` | Server | Player data is safe to read |
-
-## Schema
-
-Owned by `spz-core/migrations/`. Key `players` columns:
-
-| Column | Type | Default | Meaning |
-|---|---|---|---|
-| `id` | INT | auto | Primary key |
-| `username` | VARCHAR | NULL | Unique racer name |
-| `gender` | INT | NULL | 0 = male, 1 = female |
-| `first_time` | INT | 1 | Character creation pending |
-| `license_tier` | INT | 0 | 0 = C, 1 = B, 2 = A, 3 = S |
-
-## Dependencies
-
-`ox_lib` · `spz-core` · `oxmysql`
+Source: [https://github.com/SPiceZ21/spz-identity](https://github.com/SPiceZ21/spz-identity)

@@ -87,6 +87,9 @@ the server's whole uptime.
 | `SPZ:racerFinished` | spz-races | One racer crossed the line — reactive use only, field incomplete |
 | `SPZ:raceEnd` | spz-races | Race over, results final. Scoring and persistence hang off this |
 | `SPZ:standings` | spz-races | Live running order for out-of-race consumers (the live race board in spz-spectate) |
+| `SPZ:progressionApplied` | spz-progression | Once per race, after scoring: every player's before/after RP, rank, SR, iRating |
+| `SPZ:rankChanged` | spz-progression | A player's rank string moved (with real promotion/demotion direction) |
+| `SPZ:licenseUnlocked` | spz-identity (`UnlockLicense`) | Class letter went up; the only emitter |
 
 `spz-races` also drives lifecycle through `GlobalState.raceState`, which every client reads
 for free. Statebag handlers fire on every *set*, not only on a change, so the transition

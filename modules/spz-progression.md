@@ -1,51 +1,73 @@
 # spz-progression
 
-> XP, ranks, Safety Rating, iRating, license promotion, seasons · `v1.1.0`
+> XP, safety rating, iRating and rank points.
+
+![version](https://img.shields.io/badge/version-1.1.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
 ## Overview
 
-`spz-progression` listens for race results and converts them into progress: XP and levels,
-championship points, Safety Rating, an Elo-style iRating, rank movement and license
-unlocks. It also owns seasons and rivals.
+Turns race results into progression: XP and levels, a safety rating, an iRating-style skill number and rank points that decide your rank tier. Also tracks rivals.
 
-It never writes identity data directly — promotions and rating changes go through
-`spz-identity` exports.
+## Features
 
-Scoring hangs off `SPZ:raceEnd`, which `spz-races` fires exactly once per race with the
-complete field — iRating in particular is meaningless against a partial one. Do not add a
-handler for `SPZ:racerFinished` here: that fires per finisher and would score a racer twice.
+- XP and levels
+- Safety rating from incidents
+- iRating-style skill rating
+- Rank points and tiers
+- Rivals
 
-## Systems
+## Requirements
 
-| System | What it measures |
+| Resource | Type |
 |---|---|
-| **XP / level** | Total participation and performance over time |
-| **Championship points** | Finishing position in a race, per the shared points table |
-| **Safety Rating (SR)** | Clean driving — incidents and contact push it down |
-| **iRating** | Relative pace against the field, Elo-style |
-| **Rank** | Derived display tier from the values above |
-| **License** | Unlock gate for higher classes — C → B → A → S |
+| `ox_lib` | third-party |
+| `spz-core` | SPiceZ module |
+| `spz-identity` | SPiceZ module |
+| `spz-races` | SPiceZ module |
 
-## Exports
+## Installation
 
-| Group | Exports |
-|---|---|
-| XP | `CalculateXP` · `LevelFromXP` · `XPRequired` · `GrantBonus` |
-| Points | `CalculatePoints` |
-| Ratings | `CalculateSRDelta` · `ApplySR` · `CalculateIRatingDeltas` |
-| Ranks | `ComputeRank` · `CheckRankPromotion` |
-| Licenses | `CheckLicenseUnlock` |
+Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
+
+1. Download `spz-progression` from GitHub (latest release, or the repository) into your `resources` folder.
+2. Add to `server.cfg`, after its requirements:
+
+```cfg
+ensure spz-progression
+```
 
 ## Configuration
 
-`config.lua` holds the multipliers and thresholds; the shared tables
-(`shared/points.lua`, `shared/ranks.lua`, `shared/licenses.lua`) hold the curves both sides
-read.
+- `config.lua`
+
+See the file for every option.
 
 ## Commands
 
-`/spz` · `/rival`
+| Command | Who | Description |
+|---|---|---|
+| `/rank` | player | Show your rank |
+| `/rival` | player | Show your rival and the gap on your last track |
 
-## Dependencies
+## Exports
 
-`ox_lib` · `spz-core` · `spz-identity` · `spz-races`
+| Export | Side |
+|---|---|
+| `AdminRankInfo` | server |
+| `AdminRankStats` | server |
+| `AdminRecentRaces` | server |
+| `AdminSetRP` | server |
+| `AdminVoidRace` | server |
+| `CalculateXP` | server |
+| `GrantBonus` | server |
+| `GrantFlatRP` | server |
+| `LevelFromXP` | server |
+| `XPRequired` | server |
+
+```lua
+exports["spz-progression"]:AdminRankInfo(...)
+```
+
+---
+
+Source: [https://github.com/SPiceZ21/spz-progression](https://github.com/SPiceZ21/spz-progression)

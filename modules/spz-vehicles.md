@@ -1,49 +1,81 @@
 # spz-vehicles
 
-> Vehicle registry, classes, spawning, upgrades, customization · `v1.0.0`
+> Vehicle registry, classes, race spawns, upgrades and saved customisation.
+
+![version](https://img.shields.io/badge/version-1.6.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
 ## Overview
 
-`spz-vehicles` decides what a player may drive. It owns the master vehicle table and class
-definitions, spawns cars for free roam and race grids, validates and persists upgrades,
-stores cosmetic setups, and builds the vehicle pool that `spz-poll` votes on.
+Knows every car the server offers and its class, spawns race and freeroam vehicles server-side, applies performance upgrades and each player's saved customisation. Race cars get a random chameleon paint.
 
-## Data
+## Features
 
-| File | Contents |
+- Car registry and class classification (incl. add-on cars)
+- Server-side race spawns
+- Saved customisation per player and car
+- Vanity plates on every car
+
+## Requirements
+
+| Resource | Type |
 |---|---|
-| `data/vehicles.lua` | Master vehicle table — model, class, availability |
-| `shared/classes.lua` | Class definitions and metadata |
-| `shared/upgrades.lua` | Upgrade tiers and slots |
+| `ox_lib` | third-party |
+| `spz-core` | SPiceZ module |
+| `spz-identity` | SPiceZ module |
+| `oxmysql` | third-party |
 
-Class balancing can also use PP values from
-[spz-physics](spz-physics.md) (`GetModelPP`).
+## Installation
 
-## Exports
+Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
 
-| Group | Exports |
-|---|---|
-| Registry | `GetVehicleRegistry` · `GetVehicleData` · `IsRegistered` · `GetClassMeta` · `GetClassVehicles` · `GetRaceClasses` |
-| Spawning | `SpawnVehicle` · `FreeroamSpawn` · `SpawnRaceVehicle` · `DespawnVehicle` · `GetPlayerVehicle` · `GetFreeroamVehicles` |
-| Poll pool | `GetPollPool` · `GetAllPollOptions` |
-| Customization | `LoadCustomization` · `ResetCustomization` |
-| Unlocks | `UnlockRaceVehicle` |
+1. Download `spz-vehicles` from GitHub (latest release, or the repository) into your `resources` folder.
+2. Add to `server.cfg`, after its requirements:
 
-```lua
-local data = exports['spz-vehicles']:GetVehicleData('banshee')
-exports['spz-vehicles']:SpawnRaceVehicle(source, model, gridSlot)
+```cfg
+ensure spz-vehicles
 ```
 
-## Spawning
+## Configuration
 
-Free-roam and race spawns are separate paths. Race spawns are grid-aware and are only
-issued by `spz-races`; both are server-authoritative, so a client cannot conjure a vehicle
-it has not unlocked.
+- `config.lua`
+
+See the file for every option.
 
 ## Commands
 
-`/savecustom` · `/resetcustom`
+| Command | Who | Description |
+|---|---|---|
+| `/resetcustom` | player | Reset it |
+| `/savecustom` | player | Save the current car's customisation |
+| `/reclassify` | admin | Recompute car classes |
+| `/spzaddons` | admin | List add-on cars |
+| `/spzaddonscan` | admin | Scan for add-on cars |
+| `/vehcheck` | admin | Inspect the car you are in |
 
-## Dependencies
+## Exports
 
-`ox_lib` · `spz-core` · `spz-identity` · `oxmysql`
+| Export | Side |
+|---|---|
+| `DespawnVehicle` | server |
+| `GetAddonRaceClasses` | server |
+| `GetAllPollOptions` | server |
+| `GetClassMeta` | server / shared |
+| `GetClassification` | server |
+| `GetPlayerVehicle` | server |
+| `GetPollPool` | server |
+| `GetRaceClasses` | server |
+| `GetVehicleData` | server |
+| `GetVehicleRegistry` | server |
+| `IsRegistered` | server |
+| `LoadCustomization` | server |
+| `SpawnRaceVehicle` | server |
+| `SpawnVehicle` | server |
+| `UnlockRaceVehicle` | server |
+
+```lua
+exports["spz-vehicles"]:DespawnVehicle(...)
+```
+
+---
+
+Source: [https://github.com/SPiceZ21/spz-vehicles](https://github.com/SPiceZ21/spz-vehicles)

@@ -22,7 +22,7 @@ Config.Spawns = {
 
 `spz-races/config.lua` — join window, poll duration, warmup length, finish window,
 intermission and spawn mode. Tracks live in `spz-races/data/tracks.lua` (101 shipped: 76
-circuit, 25 sprint); build new ones in-game with `/trackcreator`.
+circuit, 25 sprint); build new ones in-game from the admin menu (**Tracks → Make a new track**).
 
 Two knobs worth understanding before you touch them:
 
@@ -40,17 +40,20 @@ to and what may be unlocked. Class definitions are in `shared/classes.lua`.
 
 | Resource | Set |
 |---|---|
-| `spz-log/config.lua` | Webhook URL per category — they ship as placeholders |
+| `spz-discord` | `set spz_discord_token` and `set spz_discord_guild` in `server.cfg` for race embeds, whitelist and role-based admin |
 | `spz-rpc/config.lua` | `Config.AppId` and the art asset keys from your Discord app |
 
-## 6. Optional modules
+## 6. Theme and optional modules
+
+Every SPiceZ UI reads the same theme convars, so one block re-skins the loading screen,
+HUD and menus: `setr spz_theme_accent "#ff6200"` (also `accent2`, `bg`, `bg2`, `danger`, `gold`).
 
 | Resource | Configure |
 |---|---|
 | `spz-spectate/config.lua` | Live race board — rows per view, keys, post-race hold |
 | `spz-speedcam/config.lua` | Detection radius, minimum speed, units, blips |
-| `spz-physics/config.lua` | Powertrain tuning and PP class bands |
 | `spz-fpscap/config.lua` | Frame cap and whether it enforces or only warns |
+| `spz-minigames/config.lua` | Hub key, NPC locations, return spawn |
 
 ## 7. Smoke test
 

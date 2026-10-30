@@ -1,14 +1,13 @@
 # Installation
 
-## Prerequisites
+## Requirements
 
 | Requirement | Notes |
 |---|---|
-| FiveM server artifact | Build `27926` or newer |
-| MySQL / MariaDB | Any running instance; XAMPP is fine locally |
-| FiveM license key | [keymaster.fivem.net](https://keymaster.fivem.net/) |
-| `oxmysql` · `ox_lib` · `fivem-appearance` · `pma-voice` | Required dependencies |
-| `screenshot-basic` · `screencapture` | Optional — headshots and overtake clips |
+| FXServer artifact | Build `27926` or newer |
+| Game build | `3407` (`sv_enforceGameBuild 3407`) |
+| MySQL / MariaDB | Any running instance |
+| FiveM licence key | [keymaster.fivem.net](https://keymaster.fivem.net/) |
 
 ## Option A — txAdmin recipe (recommended)
 
@@ -17,38 +16,41 @@
    ```
    https://raw.githubusercontent.com/SPiceZ21/spz-txrecipe/main/spz-recipe.yaml
    ```
-3. Enter your server name, license key and database connection.
-4. Let the wizard finish, then start the server.
+3. Enter the server name, licence key and database connection.
+4. Let it finish, then start the server.
 
-The recipe downloads every dependency and module and writes `server.cfg` in the correct
-order.
-
-> `spz-physics` is not installed by the recipe. Its `ensure` line ships commented out in
-> the generated `server.cfg` — install the resource manually and uncomment the line if you
-> want the powertrain simulation.
+The recipe downloads every dependency and module and writes `server.cfg` in the right
+order. Nothing else is needed — the database schema builds itself on first boot.
 
 ## Option B — manual
 
-Load order matters. A module started before its dependencies will not find their exports.
+Download each module from [github.com/SPiceZ21](https://github.com/SPiceZ21) into
+`resources/[spz]/`. Load order matters: a module started before its dependencies will not
+find their exports.
 
 ```cfg
-# ── Dependencies ─────────────────────────────
+# Dependencies
 ensure oxmysql
 ensure ox_lib
 ensure fivem-appearance
 ensure pma-voice
-ensure screenshot-basic      # optional
-ensure screencapture         # optional
+ensure screenshot-basic
+ensure screencapture
+ensure bob74_ipl
 
-# ── Core ─────────────────────────────────────
+# Core
 ensure spz-rpc
 ensure spz-loading
 ensure spz-core
 ensure spz-identity
+ensure spz-chat
+ensure spz-pausemenu
 ensure spz-appearance
+ensure spz-emotes
 ensure spz-spawn
+ensure spz-admin
 
-# ── Racing ───────────────────────────────────
+# Racing
 ensure spz-speedcam
 ensure spz-vehicles
 ensure spz-races
@@ -58,39 +60,35 @@ ensure spz-poll
 ensure spz-raceUI
 ensure spz-leaderboard
 ensure spz-carspawner
-ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
 ensure spz-vehfunc
 ensure spz-tunners
 ensure spz-spectate
-ensure spz-spectate
+ensure spz-replay
+ensure spz-analytics
+ensure spz-crew
+ensure spz-discord
 
-# ── Admin (last) ─────────────────────────────
-ensure vMenu
+# Minigames (hub first)
+ensure spz-minigames
+ensure spz-colorrush
+ensure spz-cyclone
+# ensure iak_demolition   # third-party arena map, needed by the two below
+ensure spz-bomb
+ensure spz-demolition
+ensure spz-pursuit
 ```
+
+`fivem-appearance` needs its thumbnail pack (`images/`) next to its `fxmanifest.lua`; the
+recipe adds it automatically.
 
 ## Database
 
-Point `oxmysql` at your database. That is the only database step — there are no `.sql`
-files to import.
-
-`spz-core` owns the schema: every file in `spz-core/migrations/` is applied on first boot
-and recorded in the `spz_migrations` table, so restarts and upgrades are no-ops.
-`SPZ:coreReady` does not fire until migrations finish.
-
-To change the schema, add a new numbered file to `spz-core/migrations/`. Never edit one
-that has already shipped.
-
-## Building the NUI resources
-
-Resources with a `ui/` directory ship prebuilt `ui/dist/`. Rebuild after changing UI
-source:
-
-```bash
-cd <resource>/ui && npm install && npm run build
-```
+Point `oxmysql` at your database (`set mysql_connection_string ...`). That is the only
+database step — there are no `.sql` files to import. `spz-core` applies every file in
+`spz-core/migrations/` on first boot and records it in `spz_migrations`.
 
 ## Verify
 
@@ -98,6 +96,4 @@ Start the server and check the console for:
 
 - migrations applied, then `spz-core` reporting ready,
 - no `Failed to load resource` lines for `spz-*`,
-- a player connect producing a session and reaching the spawn menu.
-
-`/spz` and `/status` in-game report core state.
+- a player connecting reaching character creation, then the play menu.
