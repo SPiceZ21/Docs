@@ -8,6 +8,8 @@
 
 `Esc` opens a SPiceZ pause menu: map, teleport to hub, leave the current queue / race / minigame, settings and quick tiles for the main screens.
 
+![Pause menu](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/pausemenu.jpg)
+
 ## Features
 
 - Map and settings shortcuts

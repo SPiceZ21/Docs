@@ -8,6 +8,8 @@
 
 Lets any player spectate anyone online — including racers in private buckets — with a clean overlay of their live data, plus a live race board for following a race.
 
+![Spectator overlay and live race board](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spectate.jpg)
+
 ## Features
 
 - Spectate any player, across routing buckets

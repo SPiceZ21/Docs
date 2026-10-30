@@ -8,6 +8,8 @@
 
 Replaces the default chat. `T` opens it; messages go to global, crew or direct channels, and slash commands autocomplete. Closes itself whenever the player is teleported or a race / minigame takes over.
 
+![Chat: global, crew and DM](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat.jpg)
+
 ## Features
 
 - Global, crew and DM channels

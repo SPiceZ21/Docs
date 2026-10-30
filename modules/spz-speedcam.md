@@ -8,6 +8,8 @@
 
 Fixed speed cameras across the map. Drive through one fast to set your best; the fastest pass per camera is the server record.
 
+![Speed camera pass](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedcam.jpg)
+
 ## Features
 
 - Camera network with blips

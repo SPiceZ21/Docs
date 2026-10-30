@@ -20,6 +20,8 @@ flowchart LR
     W --> RT[Back to the hub return point]
 ```
 
+![Minigame hub](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/minigames.jpg)
+
 ## Features
 
 - Hub for Color Rush, Cyclone, Bomb Tag, Demolition and Hot Pursuit

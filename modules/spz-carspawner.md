@@ -8,6 +8,8 @@
 
 Opens a searchable garage (`F5`) with every car, filtered by class, including add-ons. Freeroam only.
 
+![Car spawner](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/carspawner.jpg)
+
 ## Features
 
 - Search and class filter

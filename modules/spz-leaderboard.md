@@ -8,6 +8,8 @@
 
 A tablet UI opened with `F6`: the race you just finished first, then the archive, rank standings, per-class records and recent activity.
 
+![Leaderboard tablet: global standings](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/leaderboard.jpg)
+
 ## Features
 
 - Last race results, opened automatically after a race

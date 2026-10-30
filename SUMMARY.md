@@ -59,3 +59,4 @@
 * [Keybinds](reference/keybinds.md)
 * [Commands](reference/commands.md)
 * [Database](reference/database.md)
+* [UI gallery](reference/ui-gallery.md)

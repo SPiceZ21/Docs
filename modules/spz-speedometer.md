@@ -8,6 +8,8 @@
 
 A themed racing speedometer: speed, gear, RPM and rewind / boost meters during races.
 
+![Speedometer](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer.jpg)
+
 ## Features
 
 - Speed, gear and RPM

@@ -8,6 +8,8 @@
 
 A full tuning menu built on ox_lib: performance parts, body parts, paint (incl. chameleon), wheels, neon, liveries. Used in freeroam, in race warmup (`Y`) and by Hot Pursuit's car setup.
 
+![Tuner: performance parts](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/tunners.jpg)
+
 ## Features
 
 - Performance and cosmetic parts

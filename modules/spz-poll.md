@@ -8,6 +8,8 @@
 
 Shows the vote screen between races: three track cards with route previews and car-class options, live vote counts, re-roll votes and a countdown. Driven entirely by spz-races through exports.
 
+![Track vote with route previews](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/poll.jpg)
+
 ## Features
 
 - Track cards with route outline

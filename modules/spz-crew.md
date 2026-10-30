@@ -8,6 +8,8 @@
 
 A dashboard to create, browse and join crews, manage the roster, kick and disband, plus a crew voice radio (pma-voice).
 
+![Crew dashboard](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/crew.jpg)
+
 ## Features
 
 - Create / browse / join crews
