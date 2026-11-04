@@ -36,6 +36,14 @@ Every SPiceZ-Core screen as players see it, drawn by [spz-hud](../modules/spz-hu
 
 ![Digital speedometer (HUD setting)](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer-digital.jpg)
 
+## The hub (TAB)
+
+![Standings](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-standings.jpg)
+
+![Achievements](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-achievements.jpg)
+
+![Crew](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-crew.jpg)
+
 ## Spawn
 
 ![Welcome](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spawn-welcome.jpg)

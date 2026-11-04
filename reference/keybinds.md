@@ -31,6 +31,7 @@ in-race hint use it, so a rebind shows within about a second.
 | `F9` | Race board: cycle full / mini / hidden | spz-spectate | `config.lua` → `Config.Board.keys.cycle` |
 | `F10` | Toggle player nametags | spz-nametag | `config.lua` → `Config.Keybind` |
 | `F11` | Race board: hide or restore | spz-spectate | `config.lua` → `Config.Board.keys.hide` |
+| `TAB` | Open the SPiceZ hub (profile, standings, crew, achievements…) — takes GTA's weapon-wheel key | spz-hud | `client/hub.lua` |
 | `T` | Open chat | spz-chat | `config.lua` → `Config.Keybind` |
 | `B` | Race: rewind time (hold) | spz-races | `config.lua` → `Config.Rewind.key` |
 | `K` | Race: flip car upright | spz-races | `client/recover.lua` |

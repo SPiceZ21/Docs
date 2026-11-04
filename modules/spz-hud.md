@@ -18,6 +18,7 @@ The other resources keep their Lua and their NUI callbacks. A small shim they lo
 - **Player layout.** `/hudedit`: drag any HUD element, scroll to resize it, hide it; saved per player.
 - **HUD settings.** Analogue or digital speedometer, in the same editor.
 - **Key strip.** The keys for what you are doing right now, with your own bindings.
+- **The hub (TAB).** One full-screen place for your profile, standings, rivals, replays, speed records, crew and achievements.
 - **Game states.** Freeroam, race, minigame and spectate: each shows only its own HUD.
 - **Shared focus.** One owner for mouse and keyboard; closing a menu hands focus back to what is underneath.
 - **One look.** A shared design layer (fonts, panels, colours, radii) over every UI.
@@ -80,13 +81,37 @@ Bottom centre-right: what you can press right now.
 
 | State | Keys |
 |---|---|
-| Freeroam, on foot | Garage · Emotes · Results · Profile · Menu |
-| Freeroam, in a car | Garage · Results · Profile · Exit · Menu |
-| Race | Standings · Last CP · Flip · Rewind · Results · Menu |
-| Time trial | Standings · Last CP · Flip · Restart · Results · Menu |
+| Freeroam, on foot | Garage · Emotes · Results · Profile · Hub · Menu |
+| Freeroam, in a car | Garage · Results · Profile · Exit · Hub · Menu |
+| Race | Standings · Last CP · Flip · Rewind · Results · Hub · Menu |
+| Time trial | Standings · Last CP · Flip · Restart · Results · Hub · Menu |
 | Minigame / spectate | — (they draw their own) |
 
 Keys are read live through spz-core's `KeyFor`, so a rebind in *Settings → Key Bindings → FiveM* shows within about a second, and picking up a controller switches every key to its pad button. Keys with no controller binding are hidden on a pad.
+
+## The hub (TAB)
+
+Press **TAB** for the hub; **TAB** or **ESC** closes it, **Q** / **E** change section.
+
+| Section | What it is |
+|---|---|
+| Profile | your stats, rank, activity and history charts |
+| Standings | global standings · class standings · track records |
+| Rivals | rival board · duels · server activity |
+| Replays | the race archive, with replays |
+| Speed records | your speed-camera bests |
+| Crew | the crew dashboard: roster, rival crew, settings, invites |
+| Achievements | milestones from your career: races, wins, podiums, iRating, safety, licence class, level, tracks |
+
+The sections are the existing screens (spz-leaderboard, spz-crew, spz-speedcam), opened through their own commands so they load their data as always, and laid into the hub's frame. Achievements are worked out in the hub from the career stats the profile section already shows; there is no separate achievements table.
+
+TAB is GTA's weapon wheel by default; on a racing server that wheel has nothing to do, so the hub takes the key. Players can rebind it (*Settings → Key Bindings → FiveM → Open the SPiceZ hub*).
+
+![The hub: standings](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-standings.jpg)
+
+![The hub: achievements](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-achievements.jpg)
+
+![The hub: crew](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hub-crew.jpg)
 
 ## Configuration
 
@@ -108,6 +133,7 @@ Keys are read live through spz-core's `KeyFor`, so a rebind in *Settings → Key
 | `SetVisible(id, bool)` | client | force a widget off / back on |
 | `GetState()` | client | `freeroam` · `race` · `minigame` · `spectate` |
 | `IsEditing()` | client | true while `/hudedit` is open |
+| `IsHubOpen()` | client | true while the hub is open |
 | `RequestFocus(owner, opts)` | client | take the mouse / keyboard |
 | `ReleaseFocus(owner)` | client | give it back |
 | `FocusOwner()` | client | who has focus |
