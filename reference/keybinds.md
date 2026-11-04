@@ -10,18 +10,18 @@ progress-cancel key, and hazards on GTA's own headlights key. Every one of them
 fired both actions at once, which reads as "the key does something weird"
 rather than as a conflict.
 
-All of these are **defaults**. Players rebind them in *Settings → Key Bindings*,
-and FiveM offers no way to read a live binding back — which is why any HUD that
-prints a key reads the same constant the mapping was registered with, rather
-than guessing.
+All of these are **defaults**. Players rebind them in *Settings → Key Bindings*.
+Anything that prints a key reads the live binding through spz-core:
+`exports['spz-core']:KeyFor(command, default, padButton)` returns the player's
+current key (or the controller button while they use a pad), with the default
+as the fallback. The [key strip](../modules/spz-hud.md#key-strip) and every
+in-race hint use it, so a rebind shows within about a second.
 
 ## Claimed
 
 | Key | Action | Resource | Registered in |
 | --- | --- | --- | --- |
 | `F1` | Admin menu (ace `spz.admin`) | spz-admin | `config.lua` → `Config.MenuKey`, used by `client/menu.lua` |
-| `F2` | Speed camera records | spz-speedcam | `config.lua` → `Config.RecordsKey` |
-| `F2` | Speed camera records | spz-speedcam | `config.lua` → `Config.RecordsKey` |
 | `F2` | Speed camera records | spz-speedcam | `config.lua` → `Config.RecordsKey` |
 | `F3` | Raceline: control panel | spz-raceline | `client/panel.lua` |
 | `F4` | Race: back to last checkpoint | spz-races | `config.lua` → `Config.RecoverKey`, used by `client/recover.lua` |
@@ -35,8 +35,6 @@ than guessing.
 | `B` | Race: rewind time (hold) | spz-races | `config.lua` → `Config.Rewind.key` |
 | `K` | Race: flip car upright | spz-races | `client/recover.lua` |
 | `Y` | Race: tune car during warmup (only while in a race warmup) | spz-races | `client/nui_bridge.lua` |
-| `O` | Open the emote menu | spz-emotes | `config.lua` → `Config.MenuKey` |
-| `O` | Open the emote menu | spz-emotes | `config.lua` → `Config.MenuKey` |
 | `O` | Open the emote menu | spz-emotes | `config.lua` → `Config.MenuKey` |
 | `N` | Race: toggle standings list | spz-raceUI | `client/main.lua` |
 | `J` | Hazard lights | spz-vehfunc | `client/main.lua` |
@@ -52,7 +50,7 @@ which is undone by the next ox_lib update.
 
 | Key | Action |
 | --- | --- |
-| `Z` | Radial menu (carries the raceline / ghost controls) |
+| `Z` | Radial menu (carries the raceline / ghost controls); shown on the key strip in every state |
 | `X` | Cancel the progress bar — also stops an emote (spz-emotes `Config.CancelKey`); the two never apply at once |
 
 ## Reserved by FiveM / GTA

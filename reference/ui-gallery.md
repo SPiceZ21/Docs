@@ -1,51 +1,71 @@
 # UI gallery
 
-Every SPiceZ-Core screen, captured from the UI with sample data over a game backdrop.
+Every SPiceZ-Core screen as players see it, drawn by [spz-hud](../modules/spz-hud.md) over the game. Captured from spz-hud's preview, with sample data.
 
-## Racing
+## Freeroam
 
-![Track vote with route previews — spz-poll](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/poll.jpg)
+![Freeroam: profile card, nametags, speedometer and the key strip](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-freeroam.jpg)
 
-![Grid countdown — spz-raceUI](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-countdown.jpg)
+![Queued for the next race: lobby pill](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-lobby.jpg)
 
-![Race HUD: standings, sectors, warmup timer, lap and time — spz-raceUI](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-hud.jpg)
+## Race
 
-![Post-race result strip — spz-raceUI](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/raceui-results.jpg)
+![Race intro card](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-intro.jpg)
 
-![Leaderboard tablet: global standings — spz-leaderboard](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/leaderboard.jpg)
+![Countdown](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-countdown.jpg)
 
-![Spectator overlay and live race board — spz-spectate](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spectate.jpg)
+![Warmup](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-warmup.jpg)
 
-![Replay browser — spz-replay](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/replay.jpg)
+![Race HUD: standings, sectors, lap · timer, speedometer, key strip](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-hud.jpg)
 
-![Speed camera pass — spz-speedcam](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedcam.jpg)
+![Last lap: all three sectors, finish countdown, radar, fastest lap](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-lastlap.jpg)
 
-## Driving
+![Results](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/raceui-results.jpg)
 
-![Speedometer — spz-speedometer](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer.jpg)
+![Time trial](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-timetrial.jpg)
 
-![Car spawner — spz-carspawner](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/carspawner.jpg)
+## Minigame and spectate
 
-![Tuner: performance parts — spz-tunners](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/tunners.jpg)
+![Minigame HUD](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-minigame.jpg)
 
-![Nametags in the world — spz-nametag](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/nametag.jpg)
+![Spectating: driver bar and live race board](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spectate.jpg)
 
-## Player and social
+## HUD tools
 
-![Loading screen — spz-loading](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/loading-screen.jpg)
+![/hudedit: every element movable, resizable and hideable](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/hud-edit.jpg)
 
-![Pause menu — spz-pausemenu](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/pausemenu.jpg)
+![Digital speedometer (HUD setting)](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer-digital.jpg)
 
-![Chat: global, crew and DM — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat.jpg)
+## Spawn
 
-![Chat emoji picker — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-emoji.jpg)
+![Welcome](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spawn-welcome.jpg)
 
-![Chat GIF picker (GIPHY) — spz-chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat-gif.jpg)
+![Showcase: pick a location and spawn](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/spawn-showcase.jpg)
 
-![Crew dashboard — spz-crew](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/crew.jpg)
+![Loading screen](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/loading-screen.jpg)
 
-![Emote menu with animated previews — spz-emotes](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/emote-menu.jpg)
+## Menus
 
-## Minigames
+![Race vote](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/poll.jpg)
 
-![Minigame hub — spz-minigames](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/minigames.jpg)
+![Garage (car spawner)](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/carspawner.jpg)
+
+![Tuner](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/tunners.jpg)
+
+![Emote menu](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/emote-menu.jpg)
+
+![Leaderboard tablet](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/leaderboard.jpg)
+
+![Pause menu](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/pausemenu.jpg)
+
+![Crew dashboard](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/crew.jpg)
+
+![Replay browser](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/replay.jpg)
+
+![Minigame hub](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/minigames.jpg)
+
+![Chat](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/chat.jpg)
+
+![Radio](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/radio.jpg)
+
+![Speed camera](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedcam.jpg)

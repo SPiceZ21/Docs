@@ -14,7 +14,7 @@ Runs the whole race loop on the server. Players queue, vote on track and car cla
 - Late join during warmup
 - Server-side lap / sector / finish timing
 - Road-following GPS route and 3D distance pills over the next gates
-- Rewind, flip and back-to-checkpoint recovery
+- Rewind (4 × 15 s budget per race), flip and back-to-checkpoint recovery
 - Time Trials and 1v1 duels
 - Track Studio: drive the route and drop gates (`custom_tracks.json`)
 - Flag girl race start

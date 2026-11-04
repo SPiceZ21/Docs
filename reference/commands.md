@@ -10,6 +10,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/car` | [spz-carspawner](../modules/spz-carspawner.md) | Open the spawner, or `/car <model>` |
 | `/crew` | [spz-crew](../modules/spz-crew.md) | Open the crew dashboard |
 | `/crewradio` | [spz-crew](../modules/spz-crew.md) | Toggle crew radio |
+| `/hudedit` | [spz-hud](../modules/spz-hud.md) | Move, resize and hide HUD elements; HUD settings (speedometer style) |
 | `/customs` | [spz-tunners](../modules/spz-tunners.md) | Open customs |
 | `/discardclip` | [spz-core](../modules/spz-core.md) | Stop recording without saving |
 | `/duel` | [spz-races](../modules/spz-races.md) | `/duel <player> <track> <stake>` — challenge a player |

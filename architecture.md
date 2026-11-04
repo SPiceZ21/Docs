@@ -12,11 +12,37 @@ flowchart TD
     races --> spectate["spz-spectate"] & replay["spz-replay"] & raceline["spz-raceline"]
     core --> hub["spz-minigames"]
     hub --> games["Color Rush · Cyclone · Bomb Tag<br/>Demolition · Hot Pursuit"]
+    core --> hud["spz-hud<br/>every UI · layout · focus"]
 ```
 
 
 Load order follows this diagram. A module started before its dependencies will not find
 their exports.
+
+## Interface: one page
+
+Every UI is drawn by [spz-hud](modules/spz-hud.md). A resource with a screen keeps its Lua and
+its NUI callbacks but has no page of its own: it loads `@spz-hud/shim.lua`, which sends its
+`SendNUIMessage` / `SetNuiFocus` to spz-hud, and spz-hud draws its page as one layer of a
+single NUI page.
+
+```mermaid
+flowchart LR
+    lua["resource Lua<br/>(spz-races, spz-chat, …)"] -- SendNUIMessage --> shim["@spz-hud/shim.lua"]
+    shim --> host["spz-hud page"]
+    host --> layer["that resource's layer"]
+    layer -- "NUI callback<br/>https://&lt;resource&gt;/…" --> lua
+    host --> focus["focus stack<br/>one owner of mouse + keys"]
+```
+
+- **Focus is a stack.** Opening a menu pushes it; closing hands focus back to what is
+  underneath, so two UIs never fight over the cursor.
+- **Game states** (freeroam · race · minigame · spectate) decide which HUD elements show.
+- **One look.** `spz-hud/design/` lays the shared fonts, panels, colours and radii over every
+  layer.
+- **Players place the HUD** with `/hudedit`.
+- The **loading screen** (spz-loading) is the one page outside it: FiveM requires a separate
+  loadscreen.
 
 ## Rules
 

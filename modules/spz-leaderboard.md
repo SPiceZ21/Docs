@@ -4,6 +4,8 @@
 
 ![version](https://img.shields.io/badge/version-1.6.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
+> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still opens the tablet and plays rank-ups; [spz-hud](spz-hud.md) draws them.
+
 ## Overview
 
 A tablet UI opened with `F6`: the race you just finished first, then the archive, rank standings, per-class records and recent activity.

@@ -22,6 +22,7 @@
   * [spz-spawn](modules/spz-spawn.md)
   * [spz-appearance](modules/spz-appearance.md)
   * [spz-loading](modules/spz-loading.md)
+  * [spz-hud](modules/spz-hud.md)
   * [spz-races](modules/spz-races.md)
   * [spz-poll](modules/spz-poll.md)
   * [spz-raceUI](modules/spz-raceUI.md)

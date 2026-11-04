@@ -1,6 +1,6 @@
 # Modules
 
-Every module in the SPiceZ-Core beta. Each is its own resource and repository; the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe) installs them all.
+Every module in the SPiceZ-Core beta. Each is its own resource and repository (archived ones are read-only but still required); the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe) installs them all.
 
 ## Core
 
@@ -11,15 +11,16 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository; t
 | [spz-spawn](spz-spawn.md) | `1.9.1` | Spawn flow: character creation, play menu and cinematic world entry. |
 | [spz-appearance](spz-appearance.md) | `1.0.2` | Freemode ped, personal outfits and crew outfits on top of fivem-appearance. |
 | [spz-loading](spz-loading.md) | `1.7.0` | Themed loading screen with real boot progress. |
+| [spz-hud](spz-hud.md) | `0.1.0` | The one interface layer: hosts every SPiceZ UI, player-placed HUD, shared focus and look. |
 
 ## Racing
 
 | Module | Version | What it does |
 |---|---|---|
 | [spz-races](spz-races.md) | `1.45.0` | The race engine: queue, vote, grid, warmup, checkpoints, timing and results. |
-| [spz-poll](spz-poll.md) | `1.6.0` | The track and car-class vote between races. |
-| [spz-raceUI](spz-raceUI.md) | `1.18.0` | Race HUD: countdown, standings, timing, intro cover, lobby pill and results. |
-| [spz-leaderboard](spz-leaderboard.md) | `1.6.0` | Leaderboard tablet: race results, standings, classes, records and activity. |
+| [spz-poll](spz-poll.md) | `1.6.0` | *Archived* · The track and car-class vote between races. |
+| [spz-raceUI](spz-raceUI.md) | `1.18.0` | *Archived* · Race HUD: countdown, standings, timing, intro cover, lobby pill and results. |
+| [spz-leaderboard](spz-leaderboard.md) | `1.6.0` | *Archived* · Leaderboard tablet: race results, standings, classes, records and activity. |
 | [spz-progression](spz-progression.md) | `1.1.1` | XP, safety rating, iRating and rank points. |
 | [spz-raceline](spz-raceline.md) | `1.7.0` | Records your best line per track and paints it on the road. |
 | [spz-speedcam](spz-speedcam.md) | `1.3.0` | Speed cameras around the map with personal and server records. |
@@ -34,13 +35,13 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository; t
 | [spz-carspawner](spz-carspawner.md) | `1.5.0` | Freeroam car spawner. |
 | [spz-tunners](spz-tunners.md) | `1.2.3` | Keyboard-driven tuning and customisation menu. |
 | [spz-vehfunc](spz-vehfunc.md) | `1.0.4` | Indicators, hazards, headlight flash and horn taunts. |
-| [spz-speedometer](spz-speedometer.md) | `1.10.0` | Racing speedometer. |
+| [spz-speedometer](spz-speedometer.md) | `1.10.0` | *Archived* · Racing speedometer. |
 
 ## Interface
 
 | Module | Version | What it does |
 |---|---|---|
-| [spz-pausemenu](spz-pausemenu.md) | `1.2.1` | Replaces the GTA pause menu. |
+| [spz-pausemenu](spz-pausemenu.md) | `1.2.1` | *Archived* · Replaces the GTA pause menu. |
 | [spz-nametag](spz-nametag.md) | `1.2.0` | Nametags with rank, crew and record crowns. |
 | [spz-chat](spz-chat.md) | `1.9.0` | Global, crew and DM chat with command autocomplete. |
 | [spz-emotes](spz-emotes.md) | `1.0.0` | Emote menu: dances, gestures, poses, shared emotes, walk styles and moods. |

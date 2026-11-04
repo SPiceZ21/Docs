@@ -4,6 +4,8 @@
 
 ![version](https://img.shields.io/badge/version-1.6.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
+> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still runs the vote screen; [spz-hud](spz-hud.md) draws it.
+
 ## Overview
 
 Shows the vote screen between races: three track cards with route previews and car-class options, live vote counts, re-roll votes and a countdown. Driven entirely by spz-races through exports.

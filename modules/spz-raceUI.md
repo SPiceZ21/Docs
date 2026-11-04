@@ -4,6 +4,8 @@
 
 ![version](https://img.shields.io/badge/version-1.18.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
+> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still sends the race HUD its data (standings, timing, intro, results); [spz-hud](spz-hud.md) draws it.
+
 ## Overview
 
 Everything drawn during a race: the intro cover and briefing, countdown, lap/sector/position HUD, standings list, finish window, post-race stats, and the freeroam lobby pill ("E JOIN RACE" / "JOIN WARMUP").

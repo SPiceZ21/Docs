@@ -4,6 +4,8 @@
 
 ![version](https://img.shields.io/badge/version-1.2.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
+> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still runs the pause menu; [spz-hud](spz-hud.md) draws it.
+
 ## Overview
 
 `Esc` opens a SPiceZ pause menu: map, teleport to hub, leave the current queue / race / minigame, settings and quick tiles for the main screens.

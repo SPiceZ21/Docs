@@ -303,9 +303,16 @@ Hold `B` to scrub the car backward along its recent path, Forza-style, then rele
 resume from that point with the momentum it had. The race clock rewinds with the car, so a
 rewind reads as *undo* rather than *teleport plus penalty*.
 
-Bounded by the rolling history buffer (10 s) and by a server-side ceiling on how much clock
-a single lap can win back (`Config.Rewind.maxCreditPerLapMs`, 15 s). Every gate you scrub
-back past still has to be re-crossed for real.
+**Budget: 4 × 15 s per race.** Each racer gets 60 s of rewinding for the whole race
+(`Config.Rewind.budgetCharges` × `chargeSeconds`), to spend however they like, in taps or
+long scrubs. A scrub stops on its own when the budget runs out, and the key does nothing
+until the next race. The server counts it too, so a modified client cannot go past it. The
+speedometer shows what is left in four pieces of 15 s, full from GO and draining while the
+key is held.
+
+Each scrub is also bounded by the rolling history buffer (10 s), and a server-side ceiling
+caps how much clock a single lap can win back (`Config.Rewind.maxCreditPerLapMs`, 15 s).
+Every gate you scrub back past still has to be re-crossed for real.
 
 **Races only.** Time trial has no rewind: the key does nothing, no path is recorded and
 no allowance is shown on the dash. The clock is the whole point of that mode, and a TT lap

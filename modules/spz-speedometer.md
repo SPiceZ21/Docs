@@ -4,11 +4,15 @@
 
 ![version](https://img.shields.io/badge/version-1.10.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
+> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still feeds the speedometer (speed, revs, gear, rewind and boost); [spz-hud](spz-hud.md) draws it, as the analogue gauge or the digital readout.
+
 ## Overview
 
 A themed racing speedometer: speed, gear, RPM and rewind / boost meters during races.
 
 ![Speedometer](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer.jpg)
+
+![Digital readout (HUD setting, spz-hud)](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer-digital.jpg)
 
 ## Features
 
