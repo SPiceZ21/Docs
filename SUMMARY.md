@@ -18,9 +18,10 @@
 
 * [Module index](modules/README.md)
   * [spz-core](modules/spz-core.md)
-  * [spz-identity](modules/spz-identity.md)
-  * [spz-spawn](modules/spz-spawn.md)
-  * [spz-appearance](modules/spz-appearance.md)
+    * [Player profiles](modules/spz-identity.md)
+    * [Spawning](modules/spz-spawn.md)
+    * [Appearance](modules/spz-appearance.md)
+    * [Analytics](modules/spz-analytics.md)
   * [spz-loading](modules/spz-loading.md)
   * [spz-hud](modules/spz-hud.md)
     * [Speedometer](modules/spz-speedometer.md)
@@ -44,7 +45,6 @@
   * [spz-demolition](modules/spz-demolition.md)
   * [spz-pursuit](modules/spz-pursuit.md)
   * [spz-admin](modules/spz-admin.md)
-  * [spz-analytics](modules/spz-analytics.md)
   * [spz-fpscap](modules/spz-fpscap.md)
   * [spz-txrecipe](modules/spz-txrecipe.md)
 

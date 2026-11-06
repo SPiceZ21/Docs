@@ -7,9 +7,6 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-core](spz-core.md) | `1.14.0` | Framework bootstrap: sessions, routing buckets, permissions, theme and the database schema. |
-| [spz-identity](spz-identity.md) | `1.8.1` | Player profiles, licences, crews and vanity plates. |
-| [spz-spawn](spz-spawn.md) | `1.9.1` | Spawn flow: character creation, play menu and cinematic world entry. |
-| [spz-appearance](spz-appearance.md) | `1.0.2` | Freemode ped, personal outfits and crew outfits on top of fivem-appearance. |
 | [spz-loading](spz-loading.md) | `1.7.0` | Themed loading screen with real boot progress. |
 | [spz-hud](spz-hud.md) | `0.1.0` | The one interface layer: hosts every SPiceZ UI, player-placed HUD, shared focus and look. |
 
@@ -54,6 +51,5 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-admin](spz-admin.md) | `1.5.0` | Admin menu: players, spectate / ride along, buckets, noclip and dev tools. |
-| [spz-analytics](spz-analytics.md) | `1.2.0` | Analytics collector for Grafana. |
 | [spz-fpscap](spz-fpscap.md) | `1.0.0` | 60 FPS fairness cap. |
 | [spz-txrecipe](spz-txrecipe.md) | `-` | txAdmin recipe: a full SPiceZ-Core server in one deploy. |

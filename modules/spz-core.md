@@ -8,6 +8,15 @@
 
 The foundation every other module builds on. It owns player sessions, the routing-bucket manager, permissions, the shared UI theme, the radial menu and the **database schema** — every `.sql` file in `migrations/` is applied once on boot and recorded in `spz_migrations`, so no other module ships SQL. `SPZ:coreReady` fires only after migrations finish.
 
+It also holds the player-facing basics, each with its own page:
+
+| Part | Was | Page |
+|---|---|---|
+| Player profiles, licences, crews, plates | spz-identity | [Player profiles](spz-identity.md) |
+| Spawning: character creation, play menu, world entry | spz-spawn | [Spawning](spz-spawn.md) |
+| Freemode ped, outfits, crew outfits | spz-appearance | [Appearance](spz-appearance.md) |
+| Analytics collector for Grafana | spz-analytics | [Analytics](spz-analytics.md) |
+
 ## Features
 
 - Automatic schema migrations on boot (`migrations/`)

@@ -21,7 +21,6 @@ Everyone drives on one big deck in the sky while a cyclone roams it, lifting car
 | `ox_lib` | third-party |
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `spz-races` | SPiceZ module (progression) |
 | `spz-minigames` | SPiceZ module |
 | `spz-colorrush` | SPiceZ module |

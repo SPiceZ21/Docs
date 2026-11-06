@@ -1,8 +1,8 @@
-# spz-spawn
+# Spawning
 
 > Spawn flow: character creation, play menu and cinematic world entry.
 
-![version](https://img.shields.io/badge/version-1.9.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-core](spz-core.md): this was the separate resource `spz-spawn` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -20,32 +20,12 @@ Takes the player from the loading screen to the world: new players go through ch
 - Loading-screen progress stages (with spz-loading)
 - Transition cover over every spawn
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `spawnmanager` | third-party |
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-spawn` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-spawn
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-core/config_spawn.lua (`Config.Spawn`; anything not set there falls back to spz-core's `config.lua`)`
 
 See the file for every option.
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-spawn](https://github.com/SPiceZ21/spz-spawn)
+Source: [https://github.com/SPiceZ21/spz-core](https://github.com/SPiceZ21/spz-core)

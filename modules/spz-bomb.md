@@ -22,7 +22,6 @@ The bomb is handed to a random car each wave; drive through another car to pass 
 | `spz-minigames` | SPiceZ module |
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `iak_demolition` | third-party |
 
 ## Installation

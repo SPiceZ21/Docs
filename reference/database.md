@@ -42,7 +42,7 @@ a new numbered file — never edit one that has shipped.
 `player_sessions`, `player_activity`, `daily_player_stats`, `daily_credit_balances`,
 `vehicle_usage`, `feature_usage`, `race_queue_events`, `race_engine_events`,
 `connection_attempts`, `server_events`, `server_snapshots`, `admin_actions` — written by
-`spz-analytics` for Grafana.
+spz-core's analytics collector for Grafana.
 
 ## Tracks are not in the database
 

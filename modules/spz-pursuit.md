@@ -22,7 +22,6 @@ A host opens a room and players pick roles, cars and tuner setups. The robber br
 | `ox_lib` | third-party |
 | `spz-minigames` | SPiceZ module |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `spz-vehicles` | SPiceZ module (tuner) |
 
 ## Installation

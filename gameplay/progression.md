@@ -30,7 +30,7 @@ streak, perfect lap, track record). RP never drops below the floor of your curre
 positive RP is capped at +300 per day. There is no limit on field size.
 
 `license_tier` (`0 = C` … `3 = S`) is just the stored class letter, derived from RP and
-written through `spz-identity:UnlockLicense`. **Nothing gates cars, tracks or classes on it.**
+written through spz-core's `UnlockLicense`. **Nothing gates cars, tracks or classes on it.**
 
 ## Formulas
 

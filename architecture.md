@@ -4,9 +4,8 @@
 
 ```mermaid
 flowchart TD
-    deps["oxmysql · ox_lib · fivem-appearance"] --> core["spz-core<br/>sessions · buckets · migrations · theme"]
-    core --> identity["spz-identity"] & appearance["spz-appearance"] & spawn["spz-spawn"]
-    identity --> vehicles["spz-vehicles"]
+    deps["oxmysql · ox_lib · fivem-appearance"] --> core["spz-core<br/>sessions · buckets · migrations · theme<br/>profiles · appearance · spawning · analytics"]
+    core --> vehicles["spz-vehicles"]
     vehicles --> races["spz-races<br/>race engine · race HUD · vote · leaderboard<br/>progression · spectate · replays · speed cameras"]
     races --> raceline["spz-raceline"]
     core --> hub["spz-minigames"]
@@ -50,7 +49,7 @@ is recorded in `spz_migrations`, so restarts and upgrades are no-ops. A module n
 creates or alters another module's tables — schema changes go in a new numbered migration.
 
 **Exports for reads, events for signals.** Need a player's profile? Call
-`exports['spz-identity']:GetProfile(source)`. Need to react to something happening? Listen
+`exports['spz-core']:GetProfile(source)`. Need to react to something happening? Listen
 for the event.
 
 **Event names are constants, not literals.** `SPZ.Events` (`spz-core/shared/events.lua`) is
@@ -79,17 +78,17 @@ to clients by `spz-core/client/config_sync.lua`.
 1. `spz-core` starts, applies `migrations/*.sql`, then fires `SPZ:coreReady`.
 2. Modules register themselves with the core registry and wait for that event.
 3. A player connects → `spz-core` creates a session → `SPZ:playerConnected`.
-4. `spz-identity` resolves or creates the profile, then fires `SPZ:playerReady` (or
+4. spz-core (profiles) resolves or creates the profile, then fires `SPZ:playerReady` (or
    `SPZ:openCharacterCreation` first, for new players).
-5. `spz-spawn` shows the play menu and puts the player in the world.
+5. spz-core (spawning) shows the play menu and puts the player in the world.
 
 ```mermaid
 sequenceDiagram
     autonumber
     participant P as Player
     participant C as spz-core
-    participant I as spz-identity
-    participant S as spz-spawn
+    participant I as spz-core (profiles)
+    participant S as spz-core (spawning)
     Note over C: boot: migrations → SPZ:coreReady
     P->>C: connect
     C->>C: create session
@@ -121,9 +120,9 @@ the server's whole uptime.
 |---|---|---|
 | `SPZ:coreReady` | spz-core | Framework up, migrations applied |
 | `SPZ:playerConnected` | spz-core | Session created |
-| `SPZ:openCharacterCreation` | spz-identity | New player needs a character |
-| `SPZ:characterReady` | spz-identity | Profile initialised |
-| `SPZ:playerReady` | spz-identity | Player data is safe to read |
+| `SPZ:openCharacterCreation` | spz-core (profiles) | New player needs a character |
+| `SPZ:characterReady` | spz-core (profiles) | Profile initialised |
+| `SPZ:playerReady` | spz-core (profiles) | Player data is safe to read |
 | `SPZ:playerDisconnected` | spz-core | Session teardown |
 | `SPZ:raceStateChanged` | spz-races | Race lifecycle transition (mirrors `GlobalState.raceState`) |
 | `SPZ:racerFinished` | spz-races | One racer crossed the line — reactive use only, field incomplete |
@@ -131,7 +130,7 @@ the server's whole uptime.
 | `SPZ:standings` | spz-races | Live running order for out-of-race consumers (the live race board) |
 | `SPZ:progressionApplied` | spz-races (progression) | Once per race, after scoring: every player's before/after RP, rank, SR, iRating |
 | `SPZ:rankChanged` | spz-races (progression) | A player's rank string moved (with real promotion/demotion direction) |
-| `SPZ:licenseUnlocked` | spz-identity (`UnlockLicense`) | Class letter went up; the only emitter |
+| `SPZ:licenseUnlocked` | spz-core (`UnlockLicense`) | Class letter went up; the only emitter |
 
 `spz-races` also drives lifecycle through `GlobalState.raceState`, which every client reads
 for free. Statebag handlers fire on every *set*, not only on a change, so the transition

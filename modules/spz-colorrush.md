@@ -22,7 +22,6 @@ A huge multicoloured platform in the sky. A colour is called, everyone drives to
 | `spz-minigames` | SPiceZ module |
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `spz-races` | SPiceZ module (progression) |
 
 ## Installation

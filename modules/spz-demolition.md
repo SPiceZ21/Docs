@@ -21,7 +21,6 @@ A destruction derby in the demolition bowl with real damage.
 | `spz-minigames` | SPiceZ module |
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `iak_demolition` | third-party |
 
 ## Installation

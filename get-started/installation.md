@@ -50,9 +50,6 @@ ensure bob74_ipl
 # Core
 ensure spz-loading
 ensure spz-core
-ensure spz-identity
-ensure spz-appearance
-ensure spz-spawn
 ensure spz-admin
 
 # Racing
@@ -60,7 +57,6 @@ ensure spz-vehicles
 ensure spz-races
 ensure spz-fpscap
 ensure spz-raceline
-ensure spz-analytics
 ensure spz-crew
 ensure spz-discord
 

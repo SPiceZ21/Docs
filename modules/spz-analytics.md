@@ -1,8 +1,8 @@
-# spz-analytics
+# Analytics
 
 > Analytics collector for Grafana.
 
-![version](https://img.shields.io/badge/version-1.2.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-core](spz-core.md): this was the separate resource `spz-analytics` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -14,27 +14,9 @@ Writes sessions, activity per mode, the race funnel, laps, vehicle and feature u
 - Per-minute server snapshots
 - Race funnel and feature usage
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `oxmysql` | third-party |
-| `spz-core` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-analytics` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-analytics
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-core/config_analytics.lua (`Config.Analytics`)`
 
 See the file for every option.
 
@@ -48,9 +30,9 @@ See the file for every option.
 | `Track` | server |
 
 ```lua
-exports["spz-analytics"]:AdminAction(...)
+exports["spz-core"]:AdminAction(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-analytics](https://github.com/SPiceZ21/spz-analytics)
+Source: [https://github.com/SPiceZ21/spz-core](https://github.com/SPiceZ21/spz-core)

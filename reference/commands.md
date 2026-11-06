@@ -6,7 +6,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 
 | Command | Module | Description |
 |---|---|---|
-| `/appearance` | [spz-appearance](../modules/spz-appearance.md) | Open the character editor |
+| `/appearance` | [spz-core](../modules/spz-appearance.md) | Open the character editor |
 | `/car` | [spz-vehicles](../modules/spz-vehicles.md) | Open the spawner, or `/car <model>` |
 | `/crew` | [spz-crew](../modules/spz-crew.md) | Open the crew dashboard |
 | `/crewradio` | [spz-crew](../modules/spz-crew.md) | Toggle crew radio |
@@ -25,7 +25,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/leaderboard` | [spz-races](../modules/spz-races.md) | Open the leaderboard |
 | `/leaverace` | [spz-races](../modules/spz-races.md) | Leave the queue / race |
 | `/menu` | [spz-core](../modules/spz-core.md) | Open the radial menu |
-| `/plate` | [spz-identity](../modules/spz-identity.md) | Set your personal plate |
+| `/plate` | [spz-core](../modules/spz-identity.md) | Set your personal plate |
 | `/pursuit` | [spz-pursuit](../modules/spz-pursuit.md) | Open the Hot Pursuit room menu |
 | `/quittt` | [spz-races](../modules/spz-races.md) | Quit the time trial |
 | `/raceboard` | [spz-races](../modules/spz-spectate.md) | Cycle the race board |
@@ -36,13 +36,13 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/raceresults` | [spz-races](../modules/spz-races.md) | Open the latest race results |
 | `/rank` | [spz-races](../modules/spz-progression.md) | Show your rank |
 | `/record` | [spz-core](../modules/spz-core.md) | Start recording a Rockstar Editor clip (again: stop and save) |
-| `/refreshdiscord` | [spz-identity](../modules/spz-identity.md) | Re-sync your Discord name/avatar (admins: for a player id) |
+| `/refreshdiscord` | [spz-core](../modules/spz-identity.md) | Re-sync your Discord name/avatar (admins: for a player id) |
 | `/resetcustom` | [spz-vehicles](../modules/spz-vehicles.md) | Reset it |
-| `/resetoutfit` | [spz-appearance](../modules/spz-appearance.md) | Drop your saved outfit (falls back to crew/default) |
+| `/resetoutfit` | [spz-core](../modules/spz-appearance.md) | Drop your saved outfit (falls back to crew/default) |
 | `/rival` | [spz-races](../modules/spz-progression.md) | Show your rival and the gap on your last track |
 | `/save_customs` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current setup |
 | `/savecustom` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current car's customisation |
-| `/saveoutfit` | [spz-appearance](../modules/spz-appearance.md) | Save your current outfit |
+| `/saveoutfit` | [spz-core](../modules/spz-appearance.md) | Save your current outfit |
 | `/spectate` | [spz-races](../modules/spz-spectate.md) | Toggle spectator mode |
 | `/srace` | [spz-races](../modules/spz-races.md) | Start a quick solo race |
 | `/stoprecord` | [spz-core](../modules/spz-core.md) | Stop and save the clip |

@@ -23,7 +23,6 @@ A dashboard to create, browse and join crews, manage the roster, kick and disban
 | `ox_lib` | third-party |
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `pma-voice` | third-party |
 
 ## Installation

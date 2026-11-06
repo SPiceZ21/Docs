@@ -26,7 +26,6 @@ It also runs the garage (`F5`), the tuner and the small driving functions (indic
 |---|---|
 | `ox_lib` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `spz-hud` | SPiceZ module (draws the garage and tuner) |
 | `oxmysql` | third-party |
 

@@ -146,8 +146,8 @@ and 24 m.
 
 The no-collision flag is not as permanent as it looks. It is dropped when an entity is
 re-created (stream out and back in), when network ownership migrates, and whenever anything
-calls `SetEntityCollision` on either half of the pair — which `spz-spawn` does after every
-spawn and `spz-appearance` after every outfit change. None of those change the entity
+calls `SetEntityCollision` on either half of the pair — which spz-core does after every
+spawn and after every outfit change. None of those change the entity
 *handle*, so a signature check on handles cannot see them.
 
 `spz-core/client/ghost.lua` therefore splits the work by who needs it:

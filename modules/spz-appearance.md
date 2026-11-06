@@ -1,8 +1,8 @@
-# spz-appearance
+# Appearance
 
 > Freemode ped, personal outfits and crew outfits on top of fivem-appearance.
 
-![version](https://img.shields.io/badge/version-1.0.2-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-core](spz-core.md): this was the separate resource `spz-appearance` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -14,27 +14,6 @@ Applies the right look to every player: their saved personal appearance, or thei
 - Crew owner's outfit pushed to every member (clothes only)
 - Re-applied on spawn, crew change and resource restart
 - Customiser lock so nothing overwrites a look being edited
-
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
-| `fivem-appearance` | third-party |
-| `oxmysql` | third-party |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-appearance` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-appearance
-```
 
 ## Commands
 
@@ -52,9 +31,9 @@ ensure spz-appearance
 | `ReapplyMyOutfit` | client |
 
 ```lua
-exports["spz-appearance"]:IsCustomizing(...)
+exports["spz-core"]:IsCustomizing(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-appearance](https://github.com/SPiceZ21/spz-appearance)
+Source: [https://github.com/SPiceZ21/spz-core](https://github.com/SPiceZ21/spz-core)

@@ -39,7 +39,6 @@ It also holds the systems around racing, each with its own page:
 |---|---|
 | `ox_lib` | third-party |
 | `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
 | `spz-vehicles` | SPiceZ module |
 | `spz-hud` | SPiceZ module (draws its pages) |
 | `oxmysql` | third-party |

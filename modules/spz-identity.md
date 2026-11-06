@@ -1,8 +1,8 @@
-# spz-identity
+# Player profiles
 
 > Player profiles, licences, crews and vanity plates.
 
-![version](https://img.shields.io/badge/version-1.8.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-core](spz-core.md): this was the separate resource `spz-identity` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,28 +16,9 @@ Creates and caches each player's profile on join and exposes it to every other m
 - Personal vanity plates
 - Optional Discord linking
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `oxmysql` | third-party |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-identity` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-identity
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-core/config_identity.lua (`Config.Identity`, server only)`
 
 See the file for every option.
 
@@ -73,9 +54,9 @@ See the file for every option.
 | `UpdateProfile` | server |
 
 ```lua
-exports["spz-identity"]:AttachProfile(...)
+exports["spz-core"]:AttachProfile(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-identity](https://github.com/SPiceZ21/spz-identity)
+Source: [https://github.com/SPiceZ21/spz-core](https://github.com/SPiceZ21/spz-core)

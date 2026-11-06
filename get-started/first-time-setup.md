@@ -10,7 +10,7 @@ default time and weather. ACE permissions for `group.admin` live in `server.cfg`
 
 ## 2. Spawn points
 
-`spz-spawn/config.lua`:
+`spz-core/config_spawn.lua`:
 
 ```lua
 Config.Spawns = {
