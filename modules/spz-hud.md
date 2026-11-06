@@ -23,6 +23,7 @@ The other resources keep their Lua and their NUI callbacks. A small shim they lo
 - **Shared focus.** One owner for mouse and keyboard; closing a menu hands focus back to what is underneath.
 - **One look.** A shared design layer (fonts, panels, colours, radii) over every UI.
 - **Checkpoint DUI pages.** The in-world checkpoint pill and gate animation.
+- **Speedometer and pause menu.** Their Lua lives here too (they were spz-speedometer and spz-pausemenu): [Speedometer](spz-speedometer.md), [Pause menu](spz-pausemenu.md).
 
 ## Game states
 
@@ -73,7 +74,7 @@ In the editor toolbar, saved with the layout.
 
 ![Digital speedometer](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/speedometer-digital.jpg)
 
-Both read the same data from spz-speedometer, and each is placed on its own. The small bar under the digital speed is boost while boost is on, otherwise the race's rewind budget, in four pieces of 15 s.
+Both read the same data (spz-hud `client/speedometer.lua`, which was spz-speedometer), and each is placed on its own. The small bar under the digital speed is boost while boost is on, otherwise the race's rewind budget, in four pieces of 15 s.
 
 ## Key strip
 
@@ -137,6 +138,8 @@ TAB is GTA's weapon wheel by default; on a racing server that wheel has nothing 
 | `RequestFocus(owner, opts)` | client | take the mouse / keyboard |
 | `ReleaseFocus(owner)` | client | give it back |
 | `FocusOwner()` | client | who has focus |
+| `SetRewindCredit(usedMs, maxMs)` · `SetSideBoost(v)` · `SetSpeedometerHidden(bool)` · `SpeedometerDemo(on)` | client | speedometer |
+| `OpenPauseMenu()` · `ClosePauseMenu()` · `IsPauseMenuOpen()` | client | pause menu |
 
 Event: `spz-hud:state` (client), with the new state.
 

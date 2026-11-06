@@ -52,7 +52,6 @@ ensure spz-loading
 ensure spz-core
 ensure spz-identity
 ensure spz-chat
-ensure spz-pausemenu
 ensure spz-appearance
 ensure spz-emotes
 ensure spz-spawn
@@ -64,7 +63,6 @@ ensure spz-races
 ensure spz-nametag
 ensure spz-fpscap
 ensure spz-raceline
-ensure spz-speedometer
 ensure spz-analytics
 ensure spz-crew
 ensure spz-discord

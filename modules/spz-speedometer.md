@@ -1,10 +1,8 @@
-# spz-speedometer
+# Speedometer
 
 > Racing speedometer.
 
-![version](https://img.shields.io/badge/version-1.10.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
-
-> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still feeds the speedometer (speed, revs, gear, rewind and boost); [spz-hud](spz-hud.md) draws it, as the analogue gauge or the digital readout.
+> Part of [spz-hud](spz-hud.md): this was the separate resource `spz-speedometer` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -19,37 +17,19 @@ A themed racing speedometer: speed, gear, RPM and rewind / boost meters during r
 - Speed, gear and RPM
 - Rewind credit and boost meters
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-speedometer` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-speedometer
-```
-
 ## Exports
 
 | Export | Side |
 |---|---|
-| `Demo` | client |
-| `SetHidden` | client |
+| `SpeedometerDemo` | client |
+| `SetSpeedometerHidden` | client |
 | `SetRewindCredit` | client |
 | `SetSideBoost` | client |
 
 ```lua
-exports["spz-speedometer"]:Demo(...)
+exports["spz-hud"]:SetRewindCredit(usedMs, maxMs)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-speedometer](https://github.com/SPiceZ21/spz-speedometer)
+Source: [https://github.com/SPiceZ21/spz-hud](https://github.com/SPiceZ21/spz-hud)

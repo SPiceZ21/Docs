@@ -25,13 +25,11 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-vehicles](spz-vehicles.md) | `1.6.1` | Vehicle registry, classes, race spawns, upgrades and saved customisation. |
-| [spz-speedometer](spz-speedometer.md) | `1.10.0` | *Archived* · Racing speedometer. |
 
 ## Interface
 
 | Module | Version | What it does |
 |---|---|---|
-| [spz-pausemenu](spz-pausemenu.md) | `1.2.1` | *Archived* · Replaces the GTA pause menu. |
 | [spz-nametag](spz-nametag.md) | `1.2.0` | Nametags with rank, crew and record crowns. |
 | [spz-chat](spz-chat.md) | `1.9.0` | Global, crew and DM chat with command autocomplete. |
 | [spz-emotes](spz-emotes.md) | `1.0.0` | Emote menu: dances, gestures, poses, shared emotes, walk styles and moods. |

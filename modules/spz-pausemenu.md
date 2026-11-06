@@ -1,10 +1,8 @@
-# spz-pausemenu
+# Pause menu
 
 > Replaces the GTA pause menu.
 
-![version](https://img.shields.io/badge/version-1.2.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
-
-> **Archived.** The repository is read-only and gets no further changes, but the resource is still required on the server. It still runs the pause menu; [spz-hud](spz-hud.md) draws it.
+> Part of [spz-hud](spz-hud.md): this was the separate resource `spz-pausemenu` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -18,27 +16,9 @@
 - Leave race / queue / minigame
 - Quick tiles for spawner, leaderboard, crew, appearance
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-pausemenu` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-pausemenu
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-hud/config_pausemenu.lua (`Config.PauseMenu`)`
 
 See the file for every option.
 
@@ -46,14 +26,14 @@ See the file for every option.
 
 | Export | Side |
 |---|---|
-| `Close` | client |
-| `IsOpen` | client |
-| `Open` | client |
+| `ClosePauseMenu` | client |
+| `IsPauseMenuOpen` | client |
+| `OpenPauseMenu` | client |
 
 ```lua
-exports["spz-pausemenu"]:Close(...)
+exports["spz-hud"]:OpenPauseMenu()
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-pausemenu](https://github.com/SPiceZ21/spz-pausemenu)
+Source: [https://github.com/SPiceZ21/spz-hud](https://github.com/SPiceZ21/spz-hud)
