@@ -103,7 +103,7 @@ Press **TAB** for the hub; **TAB** or **ESC** closes it, **Q** / **E** change se
 | Crew | the crew dashboard: roster, rival crew, settings, invites |
 | Achievements | milestones from your career: races, wins, podiums, iRating, safety, licence class, level, tracks |
 
-The sections are the existing screens (spz-leaderboard, spz-crew, spz-speedcam), opened through their own commands so they load their data as always, and laid into the hub's frame. Achievements are worked out in the hub from the career stats the profile section already shows; there is no separate achievements table.
+The sections are the existing screens (the leaderboard tablet from spz-races, spz-crew, spz-speedcam), opened through their own commands so they load their data as always, and laid into the hub's frame. Achievements are worked out in the hub from the career stats the profile section already shows; there is no separate achievements table.
 
 TAB is GTA's weapon wheel by default; on a racing server that wheel has nothing to do, so the hub takes the key. Players can rebind it (*Settings → Key Bindings → FiveM → Open the SPiceZ hub*).
 
@@ -152,7 +152,15 @@ client_scripts {
 dependencies { 'spz-hud' }
 ```
 
-Its page lives in `spz-hud/web/public/apps/<resource>/`. The look comes from `spz-hud/design/` (shared tokens, plus per-app rules); edit there rather than in the app.
+Its page lives in `spz-hud/web/public/apps/<resource>/`.
+
+A resource that drives several pages (one that absorbed others: spz-races drives `spz-raceUI`, `spz-poll` and `spz-leaderboard`) loads `@spz-hud/app.lua` instead of the shim, and binds each file to its page:
+
+```lua
+local SendNUIMessage, SetNuiFocus, SetNuiFocusKeepInput = SpzHudApp('spz-poll')
+```
+
+The app's `owner` in `tools/sync-apps.mjs` makes its page post its NUI callbacks to that resource. The look comes from `spz-hud/design/` (shared tokens, plus per-app rules); edit there rather than in the app.
 
 ## Developing
 

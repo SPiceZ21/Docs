@@ -1,12 +1,14 @@
 # spz-races
 
-> The race engine: queue, vote, grid, warmup, checkpoints, timing and results.
+> The race engine: queue, vote, grid, warmup, checkpoints, timing, results, race HUD and leaderboard.
 
 ![version](https://img.shields.io/badge/version-1.45.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
 ## Overview
 
-Runs the whole race loop on the server. Players queue, vote on track and car class (spz-poll), spawn on a grid in a private bucket, free-drive a warmup, then race. Lap, sector and finish times are measured server-side. Also includes Time Trials, duels and **Track Studio** for building tracks in the world.
+Runs the whole race loop on the server. Players queue, vote on track and car class, spawn on a grid in a private bucket, free-drive a warmup, then race. Lap, sector and finish times are measured server-side. Also includes Time Trials, duels and **Track Studio** for building tracks in the world.
+
+It also drives the race HUD, the vote screen and the leaderboard tablet (they were spz-raceUI, spz-poll and spz-leaderboard before they were merged in). [spz-hud](spz-hud.md) draws them.
 
 ## Features
 
@@ -18,6 +20,9 @@ Runs the whole race loop on the server. Players queue, vote on track and car cla
 - Time Trials and 1v1 duels
 - Track Studio: drive the route and drop gates (`custom_tracks.json`)
 - Flag girl race start
+- Race HUD: intro cover, countdown, lap / sector / position HUD, standings, finish window, post-race stats, lobby pill
+- Vote screen: track cards with route outlines, car class, re-roll, live tallies
+- Leaderboard tablet (`F6`): last race, archive, standings, classes, records, activity, rank-ups
 
 ## Requirements
 
@@ -27,6 +32,7 @@ Runs the whole race loop on the server. Players queue, vote on track and car cla
 | `spz-core` | SPiceZ module |
 | `spz-identity` | SPiceZ module |
 | `spz-vehicles` | SPiceZ module |
+| `spz-hud` | SPiceZ module (draws its pages) |
 | `oxmysql` | third-party |
 
 ## Installation
@@ -40,6 +46,26 @@ Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manu
 ensure spz-races
 ```
 
+## Race HUD, vote and leaderboard
+
+| Screen | Lua | Page in spz-hud |
+|---|---|---|
+| Race HUD | `client/ui/raceui.lua`, `client/ui/raceui_boot.lua` | `apps/spz-raceUI` |
+| Vote | `client/ui/poll.lua` | `apps/spz-poll` |
+| Leaderboard tablet | `client/ui/leaderboard.lua` | `apps/spz-leaderboard` |
+
+Each file binds itself to its page through `@spz-hud/app.lua`, and each page's NUI callbacks post to spz-races (apps.json `owner`).
+
+![Race HUD](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-hud.jpg)
+
+![Grid countdown](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/race-countdown.jpg)
+
+![Post-race result strip](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/raceui-results.jpg)
+
+![Track vote](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/poll.jpg)
+
+![Leaderboard tablet](https://raw.githubusercontent.com/SPiceZ21/Docs/main/images/leaderboard.jpg)
+
 ## Configuration
 
 - `config.lua`
@@ -51,6 +77,8 @@ See the file for every option.
 
 | Command | Who | Description |
 |---|---|---|
+| `/leaderboard` | player | Open the leaderboard |
+| `/raceresults` | player | Open the latest race results |
 | `/duel` | player | `/duel <player> <track> <stake>` — challenge a player |
 | `/joinrace` | player | Join the race queue (also `E` in freeroam) |
 | `/leaverace` | player | Leave the queue / race |
@@ -68,6 +96,7 @@ See the file for every option.
 | `/flagdrop` | dev | Preview the flag girl animation |
 | `/racesoundtest` | dev | Play the grid sounds |
 | `/wantedtest` | dev | Preview the wanted HUD |
+| `/rankuptest` | dev | Preview the rank-up animation |
 
 ## Key binds
 
@@ -80,6 +109,9 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 | Race: flip car upright | `K` |
 | Race: Rewind Time | `B` |
 | Time Trial — Restart to Start | `BACK` |
+| Race results / leaderboard | `F6` |
+| Race: toggle standings list | `N` |
+| HUD: show / hide freeroam info | `PAGEDOWN` |
 
 ## Exports
 
@@ -94,6 +126,11 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 | `GetRewindCreditMs` | client |
 | `GetTTCpIndex` | client |
 | `HandlePlayerDisconnect` | server |
+| `HideAll` | client |
+| `HideFinishWindow` | client |
+| `HideRaceIntro` | client |
+| `HideRewind` | client |
+| `HideWarmup` | client |
 | `IsInTimeTrial` | server |
 | `IsQueued` | server |
 | `IsRewinding` | client |
@@ -103,10 +140,34 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 | `JoinQueue` | server |
 | `LeaveQueue` | server |
 | `MarkDNF` | server |
+| `OpenLastRaceResults` | client |
+| `PlaySound` | client |
+| `ResetSectors` | client |
 | `SetActiveCheckpoint` | client |
+| `SetKeyHints` | client |
+| `SetRaceOverlayVisible` | client |
 | `SetRaceState` | server |
+| `ShowCountdown` | client |
+| `ShowFastestLap` | client |
+| `ShowFinishWindow` | client |
+| `ShowFlourish` | client |
+| `ShowPostRaceStats` | client |
+| `ShowRaceIntro` | client |
+| `ShowSplitDelta` | client |
+| `ShowWarmup` | client |
 | `StartCheckpointVisuals` | client |
+| `StartPoll` | client |
 | `StopCheckpointVisuals` | client |
+| `StopPoll` | client |
+| `TT_Broadcast` | client |
+| `TT_Hide` | client |
+| `UpdateCPWaypoint` | client |
+| `UpdateLobby` | client |
+| `UpdatePoll` | client |
+| `UpdateRaceOverlay` | client |
+| `UpdateRewind` | client |
+| `UpdateSector` | client |
+| `UpdateWanted` | client |
 
 ```lua
 exports["spz-races"]:ConfirmRaceSpawn(...)

@@ -64,9 +64,6 @@ ensure spz-vehicles
 ensure spz-races
 ensure spz-progression
 ensure spz-nametag
-ensure spz-poll
-ensure spz-raceUI
-ensure spz-leaderboard
 ensure spz-carspawner
 ensure spz-fpscap
 ensure spz-raceline

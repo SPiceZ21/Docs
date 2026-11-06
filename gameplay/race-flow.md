@@ -23,7 +23,7 @@ stateDiagram-v2
 | Phase | What happens |
 |---|---|
 | **Idle** | Nobody queued. The first `/joinrace` arms a dynamic join window. |
-| **Poll** | Players vote on track and vehicle class ([spz-poll](../modules/README.md)). |
+| **Poll** | Players vote on track and vehicle class ([spz-races](../modules/spz-races.md)). |
 | **Warmup** (90 s) | World and bucket set up, grid spawned. Doubles as spawn grace for slow clients. `/leaverace` here tears everything down cleanly. |
 | **Grid** | Cars settle on the start point. Ghosting is armed before vehicles spawn, so a single spawn point is safe. |
 | **Countdown** | 3-2-1, then GO. |
@@ -40,9 +40,9 @@ sequenceDiagram
     autonumber
     actor R as Racer
     participant RS as spz-races (server)
-    participant PL as spz-poll
+    participant PL as Vote screen
     participant V as spz-vehicles
-    participant UI as spz-raceUI
+    participant UI as Race HUD
     participant PR as spz-progression
     R->>RS: /joinrace or E
     RS->>PL: start vote (tracks + classes)

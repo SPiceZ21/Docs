@@ -18,9 +18,6 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-races](spz-races.md) | `1.45.0` | The race engine: queue, vote, grid, warmup, checkpoints, timing and results. |
-| [spz-poll](spz-poll.md) | `1.6.0` | *Archived* · The track and car-class vote between races. |
-| [spz-raceUI](spz-raceUI.md) | `1.18.0` | *Archived* · Race HUD: countdown, standings, timing, intro cover, lobby pill and results. |
-| [spz-leaderboard](spz-leaderboard.md) | `1.6.0` | *Archived* · Leaderboard tablet: race results, standings, classes, records and activity. |
 | [spz-progression](spz-progression.md) | `1.1.1` | XP, safety rating, iRating and rank points. |
 | [spz-raceline](spz-raceline.md) | `1.7.0` | Records your best line per track and paints it on the road. |
 | [spz-speedcam](spz-speedcam.md) | `1.3.0` | Speed cameras around the map with personal and server records. |

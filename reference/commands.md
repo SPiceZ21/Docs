@@ -22,7 +22,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/help` | [spz-chat](../modules/spz-chat.md) | List every server feature and its key |
 | `/idlecam` | [spz-vehfunc](../modules/spz-vehfunc.md) | Toggle the idle camera |
 | `/joinrace` | [spz-races](../modules/spz-races.md) | Join the race queue (also `E` in freeroam) |
-| `/leaderboard` | [spz-leaderboard](../modules/spz-leaderboard.md) | Open the leaderboard |
+| `/leaderboard` | [spz-races](../modules/spz-races.md) | Open the leaderboard |
 | `/leaverace` | [spz-races](../modules/spz-races.md) | Leave the queue / race |
 | `/menu` | [spz-core](../modules/spz-core.md) | Open the radial menu |
 | `/plate` | [spz-identity](../modules/spz-identity.md) | Set your personal plate |
@@ -33,7 +33,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/raceline` | [spz-raceline](../modules/spz-raceline.md) | Raceline options |
 | `/racelinepanel` | [spz-raceline](../modules/spz-raceline.md) | Open the raceline panel (`F3`) |
 | `/racelinetoggle` | [spz-raceline](../modules/spz-raceline.md) | Show / hide the line |
-| `/raceresults` | [spz-leaderboard](../modules/spz-leaderboard.md) | Open the latest race results |
+| `/raceresults` | [spz-races](../modules/spz-races.md) | Open the latest race results |
 | `/rank` | [spz-progression](../modules/spz-progression.md) | Show your rank |
 | `/record` | [spz-core](../modules/spz-core.md) | Start recording a Rockstar Editor clip (again: stop and save) |
 | `/refreshdiscord` | [spz-identity](../modules/spz-identity.md) | Re-sync your Discord name/avatar (admins: for a player id) |
@@ -93,7 +93,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/mgkey` | [spz-minigames](../modules/spz-minigames.md) | Show the hub key binding |
 | `/phasing` | [spz-core](../modules/spz-core.md) | Print collision/phasing state |
 | `/racesoundtest` | [spz-races](../modules/spz-races.md) | Play the grid sounds |
-| `/rankuptest` | [spz-leaderboard](../modules/spz-leaderboard.md) | Preview the rank-up animation |
+| `/rankuptest` | [spz-races](../modules/spz-races.md) | Preview the rank-up animation |
 | `/rlstatus` | [spz-raceline](../modules/spz-raceline.md) | Recording / storage status |
 | `/syncnametags` | [spz-nametag](../modules/spz-nametag.md) | Force a nametag resync |
 | `/vec3` | [spz-admin](../modules/spz-admin.md) | Copy your coords |
