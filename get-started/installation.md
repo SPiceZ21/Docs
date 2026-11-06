@@ -59,16 +59,12 @@ ensure spz-spawn
 ensure spz-admin
 
 # Racing
-ensure spz-speedcam
 ensure spz-vehicles
 ensure spz-races
-ensure spz-progression
 ensure spz-nametag
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
-ensure spz-spectate
-ensure spz-replay
 ensure spz-analytics
 ensure spz-crew
 ensure spz-discord

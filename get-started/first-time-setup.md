@@ -50,8 +50,8 @@ HUD and menus: `setr spz_theme_accent "#ff6200"` (also `accent2`, `bg`, `bg2`, `
 
 | Resource | Configure |
 |---|---|
-| `spz-spectate/config.lua` | Live race board — rows per view, keys, post-race hold |
-| `spz-speedcam/config.lua` | Detection radius, minimum speed, units, blips |
+| `spz-races/config_spectate.lua` | Live race board — rows per view, keys, post-race hold |
+| `spz-races/config_speedcam.lua` | Detection radius, minimum speed, units, blips |
 | `spz-fpscap/config.lua` | Frame cap and whether it enforces or only warns |
 | `spz-minigames/config.lua` | Hub key, NPC locations, return spawn |
 

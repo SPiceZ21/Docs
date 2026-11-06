@@ -28,22 +28,22 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/plate` | [spz-identity](../modules/spz-identity.md) | Set your personal plate |
 | `/pursuit` | [spz-pursuit](../modules/spz-pursuit.md) | Open the Hot Pursuit room menu |
 | `/quittt` | [spz-races](../modules/spz-races.md) | Quit the time trial |
-| `/raceboard` | [spz-spectate](../modules/spz-spectate.md) | Cycle the race board |
-| `/raceboard_hide` | [spz-spectate](../modules/spz-spectate.md) | Hide / restore the race board |
+| `/raceboard` | [spz-races](../modules/spz-spectate.md) | Cycle the race board |
+| `/raceboard_hide` | [spz-races](../modules/spz-spectate.md) | Hide / restore the race board |
 | `/raceline` | [spz-raceline](../modules/spz-raceline.md) | Raceline options |
 | `/racelinepanel` | [spz-raceline](../modules/spz-raceline.md) | Open the raceline panel (`F3`) |
 | `/racelinetoggle` | [spz-raceline](../modules/spz-raceline.md) | Show / hide the line |
 | `/raceresults` | [spz-races](../modules/spz-races.md) | Open the latest race results |
-| `/rank` | [spz-progression](../modules/spz-progression.md) | Show your rank |
+| `/rank` | [spz-races](../modules/spz-progression.md) | Show your rank |
 | `/record` | [spz-core](../modules/spz-core.md) | Start recording a Rockstar Editor clip (again: stop and save) |
 | `/refreshdiscord` | [spz-identity](../modules/spz-identity.md) | Re-sync your Discord name/avatar (admins: for a player id) |
 | `/resetcustom` | [spz-vehicles](../modules/spz-vehicles.md) | Reset it |
 | `/resetoutfit` | [spz-appearance](../modules/spz-appearance.md) | Drop your saved outfit (falls back to crew/default) |
-| `/rival` | [spz-progression](../modules/spz-progression.md) | Show your rival and the gap on your last track |
+| `/rival` | [spz-races](../modules/spz-progression.md) | Show your rival and the gap on your last track |
 | `/save_customs` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current setup |
 | `/savecustom` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current car's customisation |
 | `/saveoutfit` | [spz-appearance](../modules/spz-appearance.md) | Save your current outfit |
-| `/spectate` | [spz-spectate](../modules/spz-spectate.md) | Toggle spectator mode |
+| `/spectate` | [spz-races](../modules/spz-spectate.md) | Toggle spectator mode |
 | `/srace` | [spz-races](../modules/spz-races.md) | Start a quick solo race |
 | `/stoprecord` | [spz-core](../modules/spz-core.md) | Stop and save the clip |
 | `/time` | [spz-core](../modules/spz-core.md) | Local time preview |

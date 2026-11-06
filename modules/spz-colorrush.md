@@ -23,7 +23,7 @@ A huge multicoloured platform in the sky. A colour is called, everyone drives to
 | `oxmysql` | third-party |
 | `spz-core` | SPiceZ module |
 | `spz-identity` | SPiceZ module |
-| `spz-progression` | SPiceZ module |
+| `spz-races` | SPiceZ module (progression) |
 
 ## Installation
 

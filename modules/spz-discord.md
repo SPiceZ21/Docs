@@ -57,7 +57,7 @@ Coming from spz-log / spz-rpc: remove `ensure spz-log` and `ensure spz-rpc`, del
 
 | Category | Sent by |
 |---|---|
-| `race` | track records (spz-raceline), rivals (spz-progression) |
+| `race` | track records (spz-raceline), rivals (spz-races) |
 | `duel` | ghost duels (spz-races) |
 | `minigame` | minigame results |
 | `admin` | spz-admin actions, `/adminmode` |

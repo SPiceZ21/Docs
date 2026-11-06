@@ -1,8 +1,8 @@
-# spz-speedcam
+# Speed cameras
 
 > Speed cameras around the map with personal and server records.
 
-![version](https://img.shields.io/badge/version-1.3.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-races](spz-races.md): this was the separate resource `spz-speedcam` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,29 +16,9 @@ Fixed speed cameras across the map. Drive through one fast to set your best; the
 - Personal bests and server records
 - Flash and readout on pass
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
-| `oxmysql` | third-party |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-speedcam` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-speedcam
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-races/config_speedcam.lua` (`Config.Speedcam`)
 
 See the file for every option.
 
@@ -52,4 +32,4 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-speedcam](https://github.com/SPiceZ21/spz-speedcam)
+Source: [https://github.com/SPiceZ21/spz-races](https://github.com/SPiceZ21/spz-races)

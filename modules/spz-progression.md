@@ -1,8 +1,8 @@
-# spz-progression
+# Progression
 
 > XP, safety rating, iRating and rank points.
 
-![version](https://img.shields.io/badge/version-1.1.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-races](spz-races.md): this was the separate resource `spz-progression` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,29 +16,9 @@ Turns race results into progression: XP and levels, a safety rating, an iRating-
 - Rank points and tiers
 - Rivals
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
-| `spz-races` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-progression` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-progression
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-races/config_progression.lua` (`Config.Progression`)
 
 See the file for every option.
 
@@ -65,9 +45,9 @@ See the file for every option.
 | `XPRequired` | server |
 
 ```lua
-exports["spz-progression"]:AdminRankInfo(...)
+exports["spz-races"]:AdminRankInfo(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-progression](https://github.com/SPiceZ21/spz-progression)
+Source: [https://github.com/SPiceZ21/spz-races](https://github.com/SPiceZ21/spz-races)

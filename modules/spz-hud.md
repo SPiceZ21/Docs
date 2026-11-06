@@ -103,7 +103,7 @@ Press **TAB** for the hub; **TAB** or **ESC** closes it, **Q** / **E** change se
 | Crew | the crew dashboard: roster, rival crew, settings, invites |
 | Achievements | milestones from your career: races, wins, podiums, iRating, safety, licence class, level, tracks |
 
-The sections are the existing screens (the leaderboard tablet from spz-races, spz-crew, spz-speedcam), opened through their own commands so they load their data as always, and laid into the hub's frame. Achievements are worked out in the hub from the career stats the profile section already shows; there is no separate achievements table.
+The sections are the existing screens (the leaderboard tablet and speed records from spz-races, and spz-crew), opened through their own commands so they load their data as always, and laid into the hub's frame. Achievements are worked out in the hub from the career stats the profile section already shows; there is no separate achievements table.
 
 TAB is GTA's weapon wheel by default; on a racing server that wheel has nothing to do, so the hub takes the key. Players can rebind it (*Settings → Key Bindings → FiveM → Open the SPiceZ hub*).
 

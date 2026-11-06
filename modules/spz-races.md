@@ -10,6 +10,15 @@ Runs the whole race loop on the server. Players queue, vote on track and car cla
 
 It also drives the race HUD, the vote screen and the leaderboard tablet (they were spz-raceUI, spz-poll and spz-leaderboard before they were merged in). [spz-hud](spz-hud.md) draws them.
 
+It also holds the systems around racing, each with its own page:
+
+| Part | Was | Page |
+|---|---|---|
+| Progression: XP, safety rating, iRating, rank points | spz-progression | [Progression](spz-progression.md) |
+| Spectate and the live race board | spz-spectate | [Spectate](spz-spectate.md) |
+| Race replays | spz-replay | [Race replays](spz-replay.md) |
+| Speed cameras and records | spz-speedcam | [Speed cameras](spz-speedcam.md) |
+
 ## Features
 
 - Queue → vote → warmup → countdown → race → results cycle
@@ -70,6 +79,7 @@ Each file binds itself to its page through `@spz-hud/app.lua`, and each page's N
 
 - `config.lua`
 - `server/leaderboard/config.lua`
+- `config_progression.lua`, `config_spectate.lua`, `config_replay.lua`, `config_speedcam.lua` (`Config.Progression`, `.Spectate`, `.Replay`, `.Speedcam`)
 
 See the file for every option.
 

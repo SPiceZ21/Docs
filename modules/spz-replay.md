@@ -1,8 +1,8 @@
-# spz-replay
+# Race replays
 
 > Server-side race replays with broadcast cameras.
 
-![version](https://img.shields.io/badge/version-1.7.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-races](spz-races.md): this was the separate resource `spz-replay` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,30 +16,9 @@ Every race is recorded server-side, compressed into the database and can be play
 - Compressed storage
 - Multiple camera modes and driver switching
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `oxmysql` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-races` | SPiceZ module |
-| `spz-vehicles` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-replay` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-replay
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-races/config_replay.lua` (`Config.Replay`)
 
 See the file for every option.
 
@@ -50,9 +29,9 @@ See the file for every option.
 | `WatchRace` | client |
 
 ```lua
-exports["spz-replay"]:WatchRace(...)
+exports["spz-races"]:WatchRace(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-replay](https://github.com/SPiceZ21/spz-replay)
+Source: [https://github.com/SPiceZ21/spz-races](https://github.com/SPiceZ21/spz-races)

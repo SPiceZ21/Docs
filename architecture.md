@@ -7,9 +7,8 @@ flowchart TD
     deps["oxmysql · ox_lib · fivem-appearance"] --> core["spz-core<br/>sessions · buckets · migrations · theme"]
     core --> identity["spz-identity"] & appearance["spz-appearance"] & spawn["spz-spawn"]
     identity --> vehicles["spz-vehicles"]
-    vehicles --> races["spz-races<br/>race engine · race HUD · vote · leaderboard"]
-    races --> prog["spz-progression"]
-    races --> spectate["spz-spectate"] & replay["spz-replay"] & raceline["spz-raceline"]
+    vehicles --> races["spz-races<br/>race engine · race HUD · vote · leaderboard<br/>progression · spectate · replays · speed cameras"]
+    races --> raceline["spz-raceline"]
     core --> hub["spz-minigames"]
     hub --> games["Color Rush · Cyclone · Bomb Tag<br/>Demolition · Hot Pursuit"]
     core --> hud["spz-hud<br/>every UI · layout · focus"]
@@ -108,7 +107,7 @@ sequenceDiagram
 
 Races run in isolated routing buckets so a race world never sees free-roam traffic.
 `spz-core/server/buckets.lua` owns creation, assignment and cleanup; `spz-races` requests
-a bucket per race, and `spz-spectate` moves a viewer into the target's bucket so isolated
+a bucket per race, and spectate (spz-races) moves a viewer into the target's bucket so isolated
 racers stay visible.
 
 A bucket is released on **both** exits: the normal one (`RunRaceCleanup`) and the abort
@@ -129,9 +128,9 @@ the server's whole uptime.
 | `SPZ:raceStateChanged` | spz-races | Race lifecycle transition (mirrors `GlobalState.raceState`) |
 | `SPZ:racerFinished` | spz-races | One racer crossed the line — reactive use only, field incomplete |
 | `SPZ:raceEnd` | spz-races | Race over, results final. Scoring and persistence hang off this |
-| `SPZ:standings` | spz-races | Live running order for out-of-race consumers (the live race board in spz-spectate) |
-| `SPZ:progressionApplied` | spz-progression | Once per race, after scoring: every player's before/after RP, rank, SR, iRating |
-| `SPZ:rankChanged` | spz-progression | A player's rank string moved (with real promotion/demotion direction) |
+| `SPZ:standings` | spz-races | Live running order for out-of-race consumers (the live race board) |
+| `SPZ:progressionApplied` | spz-races (progression) | Once per race, after scoring: every player's before/after RP, rank, SR, iRating |
+| `SPZ:rankChanged` | spz-races (progression) | A player's rank string moved (with real promotion/demotion direction) |
 | `SPZ:licenseUnlocked` | spz-identity (`UnlockLicense`) | Class letter went up; the only emitter |
 
 `spz-races` also drives lifecycle through `GlobalState.raceState`, which every client reads

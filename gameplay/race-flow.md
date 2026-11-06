@@ -43,7 +43,7 @@ sequenceDiagram
     participant PL as Vote screen
     participant V as spz-vehicles
     participant UI as Race HUD
-    participant PR as spz-progression
+    participant PR as Progression
     R->>RS: /joinrace or E
     RS->>PL: start vote (tracks + classes)
     PL-->>RS: winning track and class
@@ -379,5 +379,5 @@ the flag.
 
 `F7` cycles it between the full board, a three-row mini view, and hidden; `F8` hides or
 restores it outright. Both keys are shown on the board itself and are rebindable, and
-`/raceboard` works from chat. The board lives in [spz-spectate](../modules/README.md) —
+`/raceboard` works from chat. The board is part of [spz-races](../modules/spz-spectate.md) —
 same audience, so it shares that resource rather than adding another.

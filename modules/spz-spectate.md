@@ -1,8 +1,8 @@
-# spz-spectate
+# Spectate and the live race board
 
 > Spectator mode and the live race board.
 
-![version](https://img.shields.io/badge/version-1.1.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-races](spz-races.md): this was the separate resource `spz-spectate` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,28 +16,9 @@ Lets any player spectate anyone online — including racers in private buckets �
 - Live position, lap, speed and car
 - Race board: full / mini / hidden
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-races` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-spectate` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-spectate
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-races/config_spectate.lua` (`Config.Spectate`)
 
 See the file for every option.
 
@@ -67,9 +48,9 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 | `IsSpectating` | client / server |
 
 ```lua
-exports["spz-spectate"]:GetBoard(...)
+exports["spz-races"]:GetBoard(...)
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-spectate](https://github.com/SPiceZ21/spz-spectate)
+Source: [https://github.com/SPiceZ21/spz-races](https://github.com/SPiceZ21/spz-races)

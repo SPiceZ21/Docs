@@ -22,15 +22,15 @@ in-race hint use it, so a rebind shows within about a second.
 | Key | Action | Resource | Registered in |
 | --- | --- | --- | --- |
 | `F1` | Admin menu (ace `spz.admin`) | spz-admin | `config.lua` → `Config.MenuKey`, used by `client/menu.lua` |
-| `F2` | Speed camera records | spz-speedcam | `config.lua` → `Config.RecordsKey` |
+| `F2` | Speed camera records | spz-races | `config_speedcam.lua` → `Config.Speedcam.RecordsKey` |
 | `F3` | Raceline: control panel | spz-raceline | `client/panel.lua` |
 | `F4` | Race: back to last checkpoint | spz-races | `config.lua` → `Config.RecoverKey`, used by `client/recover.lua` |
 | `F5` | Open car spawner | spz-vehicles | `client/garage.lua` |
 | `F6` | Race results / leaderboard | spz-races | `client/ui/leaderboard.lua` |
 | `F7` | Open the minigame hub (mapping command `minigames_hub`) | spz-minigames | `config.lua` → `Config.Key` (speed camera records moved to F2) |
-| `F9` | Race board: cycle full / mini / hidden | spz-spectate | `config.lua` → `Config.Board.keys.cycle` |
+| `F9` | Race board: cycle full / mini / hidden | spz-races | `config_spectate.lua` → `Config.Spectate.Board.keys.cycle` |
 | `F10` | Toggle player nametags | spz-nametag | `config.lua` → `Config.Keybind` |
-| `F11` | Race board: hide or restore | spz-spectate | `config.lua` → `Config.Board.keys.hide` |
+| `F11` | Race board: hide or restore | spz-races | `config_spectate.lua` → `Config.Spectate.Board.keys.hide` |
 | `TAB` | Open the SPiceZ hub (profile, standings, crew, achievements…) — takes GTA's weapon-wheel key | spz-hud | `client/hub.lua` |
 | `T` | Open chat | spz-chat | `config.lua` → `Config.Keybind` |
 | `B` | Race: rewind time (hold) | spz-races | `config.lua` → `Config.Rewind.key` |
@@ -73,9 +73,9 @@ it themselves. Reach for this list before inventing a new default.
 | `crew` | Open crew dashboard | spz-crew |
 | `crewradio` | Toggle crew radio | spz-crew |
 | `pursuitmenu` | Hot Pursuit queue menu | spz-pursuit |
-| `spectate` | Toggle spectator mode | spz-spectate |
+| `spectate` | Toggle spectator mode | spz-races |
 | `srace` | Admin: start a race with a chosen track + car (ox_lib menu, skips the poll) | spz-races |
-| `replays` | Race replay browser (while watching: SPACE play, arrows seek/speed, Q/E driver, C camera, H hide UI, B Rockstar Editor rec/stop, G open Rockstar Editor, TAB mouse, BACKSPACE exit) | spz-replay |
+| `replays` | Race replay browser (while watching: SPACE play, arrows seek/speed, Q/E driver, C camera, H hide UI, B Rockstar Editor rec/stop, G open Rockstar Editor, TAB mouse, BACKSPACE exit) | spz-races |
 | `racelinetoggle` | Raceline: toggle display | spz-raceline |
 | `noclip` | Admin: toggle noclip | spz-admin |
 

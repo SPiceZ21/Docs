@@ -1,6 +1,6 @@
 # Progression and rank
 
-Every finished race feeds [spz-progression](../modules/spz-progression.md).
+Every finished race feeds [progression](../modules/spz-progression.md) (part of spz-races).
 
 | System | Meaning |
 |---|---|
@@ -34,9 +34,9 @@ written through `spz-identity:UnlockLicense`. **Nothing gates cars, tracks or cl
 
 ## Formulas
 
-All numbers below are the shipped defaults in `spz-progression/config.lua`
+All numbers below are the shipped defaults in `spz-races/config_progression.lua`
 (`Config.Rules`, `Config.IRating`, `Config.SR`, `Config.XPRewards`). The pure maths lives
-in `spz-progression/domain/` and is covered by `tests/run.lua`.
+in `spz-races/server/progression/domain/` and is covered by `tests/progression/run.lua`.
 
 ### Rank Points (RP)
 
@@ -137,7 +137,7 @@ post-fx flourish. It rewards the flawless lap, not merely the fast one.
 Other one-off rewards use the generic export:
 
 ```lua
-exports['spz-progression']:GrantBonus(source, { xp = 250, credits = 500, reason = 'event' })
+exports['spz-races']:GrantBonus(source, { xp = 250, credits = 500, reason = 'event' })
 ```
 
 ## Record crowns
