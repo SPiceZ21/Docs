@@ -29,9 +29,6 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-vehicles](spz-vehicles.md) | `1.6.1` | Vehicle registry, classes, race spawns, upgrades and saved customisation. |
-| [spz-carspawner](spz-carspawner.md) | `1.5.0` | Freeroam car spawner. |
-| [spz-tunners](spz-tunners.md) | `1.2.3` | Keyboard-driven tuning and customisation menu. |
-| [spz-vehfunc](spz-vehfunc.md) | `1.0.4` | Indicators, hazards, headlight flash and horn taunts. |
 | [spz-speedometer](spz-speedometer.md) | `1.10.0` | *Archived* · Racing speedometer. |
 
 ## Interface

@@ -25,7 +25,7 @@ in-race hint use it, so a rebind shows within about a second.
 | `F2` | Speed camera records | spz-speedcam | `config.lua` → `Config.RecordsKey` |
 | `F3` | Raceline: control panel | spz-raceline | `client/panel.lua` |
 | `F4` | Race: back to last checkpoint | spz-races | `config.lua` → `Config.RecoverKey`, used by `client/recover.lua` |
-| `F5` | Open car spawner | spz-carspawner | `client/main.lua` |
+| `F5` | Open car spawner | spz-vehicles | `client/garage.lua` |
 | `F6` | Race results / leaderboard | spz-races | `client/ui/leaderboard.lua` |
 | `F7` | Open the minigame hub (mapping command `minigames_hub`) | spz-minigames | `config.lua` → `Config.Key` (speed camera records moved to F2) |
 | `F9` | Race board: cycle full / mini / hidden | spz-spectate | `config.lua` → `Config.Board.keys.cycle` |
@@ -38,10 +38,10 @@ in-race hint use it, so a rebind shows within about a second.
 | `Y` | Race: tune car during warmup (only while in a race warmup) | spz-races | `client/nui_bridge.lua` |
 | `O` | Open the emote menu | spz-emotes | `config.lua` → `Config.MenuKey` |
 | `N` | Race: toggle standings list | spz-races | `client/ui/raceui.lua` |
-| `J` | Hazard lights | spz-vehfunc | `client/main.lua` |
-| `L` | Flash headlights (hold) | spz-vehfunc | `client/main.lua` |
-| `G` | Horn taunt | spz-vehfunc | `client/taunts.lua` |
-| `←` / `→` | Left / right indicator | spz-vehfunc | `client/main.lua` |
+| `J` | Hazard lights | spz-vehicles | `client/vehfunc/main.lua` |
+| `L` | Flash headlights (hold) | spz-vehicles | `client/vehfunc/main.lua` |
+| `G` | Horn taunt | spz-vehicles | `client/vehfunc/taunts.lua` |
+| `←` / `→` | Left / right indicator | spz-vehicles | `client/vehfunc/main.lua` |
 | `BACKSPACE` | Time trial: restart to start | spz-races | `client/timetrail.lua` |
 
 ## Claimed by ox_lib

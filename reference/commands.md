@@ -7,20 +7,20 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | Command | Module | Description |
 |---|---|---|
 | `/appearance` | [spz-appearance](../modules/spz-appearance.md) | Open the character editor |
-| `/car` | [spz-carspawner](../modules/spz-carspawner.md) | Open the spawner, or `/car <model>` |
+| `/car` | [spz-vehicles](../modules/spz-vehicles.md) | Open the spawner, or `/car <model>` |
 | `/crew` | [spz-crew](../modules/spz-crew.md) | Open the crew dashboard |
 | `/crewradio` | [spz-crew](../modules/spz-crew.md) | Toggle crew radio |
 | `/hudedit` | [spz-hud](../modules/spz-hud.md) | Move, resize and hide HUD elements; HUD settings (speedometer style) |
-| `/customs` | [spz-tunners](../modules/spz-tunners.md) | Open customs |
+| `/customs` | [spz-vehicles](../modules/spz-vehicles.md) | Open customs |
 | `/discardclip` | [spz-core](../modules/spz-core.md) | Stop recording without saving |
 | `/duel` | [spz-races](../modules/spz-races.md) | `/duel <player> <track> <stake>` — challenge a player |
-| `/dv` | [spz-carspawner](../modules/spz-carspawner.md) | Delete your vehicle |
+| `/dv` | [spz-vehicles](../modules/spz-vehicles.md) | Delete your vehicle |
 | `/e` | [spz-emotes](../modules/spz-emotes.md) | `/e <name>` play an emote, `/e` stop |
 | `/editor` | [spz-core](../modules/spz-core.md) | Open the Rockstar Editor |
 | `/emotes` | [spz-emotes](../modules/spz-emotes.md) | Open the menu |
 | `/fix` | [spz-core](../modules/spz-core.md) | Repair the vehicle you are in |
 | `/help` | [spz-chat](../modules/spz-chat.md) | List every server feature and its key |
-| `/idlecam` | [spz-vehfunc](../modules/spz-vehfunc.md) | Toggle the idle camera |
+| `/idlecam` | [spz-vehicles](../modules/spz-vehicles.md) | Toggle the idle camera |
 | `/joinrace` | [spz-races](../modules/spz-races.md) | Join the race queue (also `E` in freeroam) |
 | `/leaderboard` | [spz-races](../modules/spz-races.md) | Open the leaderboard |
 | `/leaverace` | [spz-races](../modules/spz-races.md) | Leave the queue / race |
@@ -40,7 +40,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/resetcustom` | [spz-vehicles](../modules/spz-vehicles.md) | Reset it |
 | `/resetoutfit` | [spz-appearance](../modules/spz-appearance.md) | Drop your saved outfit (falls back to crew/default) |
 | `/rival` | [spz-progression](../modules/spz-progression.md) | Show your rival and the gap on your last track |
-| `/save_customs` | [spz-tunners](../modules/spz-tunners.md) | Save the current setup |
+| `/save_customs` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current setup |
 | `/savecustom` | [spz-vehicles](../modules/spz-vehicles.md) | Save the current car's customisation |
 | `/saveoutfit` | [spz-appearance](../modules/spz-appearance.md) | Save your current outfit |
 | `/spectate` | [spz-spectate](../modules/spz-spectate.md) | Toggle spectator mode |
@@ -48,7 +48,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/stoprecord` | [spz-core](../modules/spz-core.md) | Stop and save the clip |
 | `/time` | [spz-core](../modules/spz-core.md) | Local time preview |
 | `/timetrail` | [spz-races](../modules/spz-races.md) | Start a time trial |
-| `/tune` | [spz-tunners](../modules/spz-tunners.md) | Open the tuner |
+| `/tune` | [spz-vehicles](../modules/spz-vehicles.md) | Open the tuner |
 | `/weather` | [spz-core](../modules/spz-core.md) | Local weather preview |
 
 ## Admin

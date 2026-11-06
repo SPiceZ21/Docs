@@ -284,7 +284,7 @@ missed — the car is simply elsewhere on the track.
 ## What you cannot do mid-race
 
 Spawning or deleting a car during a race, a queue or a time trial is refused **server-side**
-(`spz-carspawner`). The radial menu also hides those options while a route is running, but
+(`spz-vehicles` garage). The radial menu also hides those options while a route is running, but
 that is presentation: `/car` and `/dv` are still typeable and the net event behind the menu
 is still callable from a client, so the decision belongs on the server. A car the race
 engine never issued desyncs the field, orphans the old vehicle in the race bucket, and

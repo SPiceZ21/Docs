@@ -64,12 +64,9 @@ ensure spz-vehicles
 ensure spz-races
 ensure spz-progression
 ensure spz-nametag
-ensure spz-carspawner
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
-ensure spz-vehfunc
-ensure spz-tunners
 ensure spz-spectate
 ensure spz-replay
 ensure spz-analytics
