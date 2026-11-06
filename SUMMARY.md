@@ -43,7 +43,6 @@
   * [spz-emotes](modules/spz-emotes.md)
   * [spz-crew](modules/spz-crew.md)
   * [spz-discord](modules/spz-discord.md)
-  * [spz-rpc](modules/spz-rpc.md)
   * [spz-minigames](modules/spz-minigames.md)
   * [spz-colorrush](modules/spz-colorrush.md)
   * [spz-cyclone](modules/spz-cyclone.md)

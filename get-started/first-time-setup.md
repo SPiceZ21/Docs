@@ -40,8 +40,8 @@ to and what may be unlocked. Class definitions are in `shared/classes.lua`.
 
 | Resource | Set |
 |---|---|
-| `spz-discord` | `set spz_discord_token` and `set spz_discord_guild` in `server.cfg` for race embeds, whitelist and role-based admin |
-| `spz-rpc/config.lua` | `Config.AppId` and the art asset keys from your Discord app |
+| `spz-discord` | `set spz_discord_token` and `set spz_discord_guild` in `server.cfg` for race feeds, logs, whitelist and role-based admin; channel ids in `config.lua` |
+| `spz-discord` rich presence | `setr spz_discord_appid` in `server.cfg`, art asset keys in `config_presence.lua` |
 
 ## 6. Theme and optional modules
 

@@ -48,7 +48,6 @@ ensure screencapture
 ensure bob74_ipl
 
 # Core
-ensure spz-rpc
 ensure spz-loading
 ensure spz-core
 ensure spz-identity

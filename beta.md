@@ -31,7 +31,7 @@ and covered by these docs.
 
 These live in the organisation but are not installed by the recipe or covered here:
 `spz-physics`, `spz-carfx`, `spz-vegetation`, `spz-rocketleague`, `spz-tutorial`,
-`spz-log`, `spz-grafnana`, `spz-checkpointprop`.
+`spz-grafnana`, `spz-checkpointprop`.
 
 ## Reporting issues
 

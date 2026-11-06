@@ -51,8 +51,7 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 | Module | Version | What it does |
 |---|---|---|
 | [spz-crew](spz-crew.md) | `1.1.1` | Crew dashboard and crew radio. |
-| [spz-discord](spz-discord.md) | `1.2.0` | Discord race embeds, whitelist and role-based admin. |
-| [spz-rpc](spz-rpc.md) | `1.0.1` | Discord Rich Presence. |
+| [spz-discord](spz-discord.md) | `2.0.0` | Everything Discord: race feeds, logs, rich presence, whitelist, role-based admin. |
 
 ## Minigames
 
