@@ -1,8 +1,10 @@
-# spz-emotes
+# Emotes
 
 > Emote menu: dances, gestures, poses, shared emotes, walk styles and moods.
 
-![version](https://img.shields.io/badge/version-1.0.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-hud](spz-hud.md): this was the separate resource `spz-emotes` until it was merged in. Nothing to install on its own.
+
+> Players' saved favourites, walk style and mood are carried over from spz-emotes automatically the first time they join after the update.
 
 ## Overview
 
@@ -18,27 +20,9 @@
 - Shared two-player emotes
 - Walk styles and moods that persist
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-emotes` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-emotes
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-hud/config_emotes.lua (`Config.Emotes`)`
 
 See the file for every option.
 
@@ -62,14 +46,14 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 
 | Export | Side |
 |---|---|
-| `OpenMenu` | client |
-| `Play` | client |
-| `Stop` | client |
+| `OpenEmoteMenu` | client |
+| `PlayEmote` | client |
+| `StopEmote` | client |
 
 ```lua
-exports["spz-emotes"]:OpenMenu(...)
+exports["spz-hud"]:PlayEmote("dance")
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-emotes](https://github.com/SPiceZ21/spz-emotes)
+Source: [https://github.com/SPiceZ21/spz-hud](https://github.com/SPiceZ21/spz-hud)

@@ -51,16 +51,13 @@ ensure bob74_ipl
 ensure spz-loading
 ensure spz-core
 ensure spz-identity
-ensure spz-chat
 ensure spz-appearance
-ensure spz-emotes
 ensure spz-spawn
 ensure spz-admin
 
 # Racing
 ensure spz-vehicles
 ensure spz-races
-ensure spz-nametag
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-analytics

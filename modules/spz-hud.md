@@ -23,7 +23,7 @@ The other resources keep their Lua and their NUI callbacks. A small shim they lo
 - **Shared focus.** One owner for mouse and keyboard; closing a menu hands focus back to what is underneath.
 - **One look.** A shared design layer (fonts, panels, colours, radii) over every UI.
 - **Checkpoint DUI pages.** The in-world checkpoint pill and gate animation.
-- **Speedometer and pause menu.** Their Lua lives here too (they were spz-speedometer and spz-pausemenu): [Speedometer](spz-speedometer.md), [Pause menu](spz-pausemenu.md).
+- **Speedometer, pause menu, nametags, chat and emotes.** Their Lua lives here too (they were separate resources): [Speedometer](spz-speedometer.md), [Pause menu](spz-pausemenu.md), [Nametags](spz-nametag.md), [Chat](spz-chat.md), [Emotes](spz-emotes.md).
 
 ## Game states
 
@@ -140,6 +140,8 @@ TAB is GTA's weapon wheel by default; on a racing server that wheel has nothing 
 | `FocusOwner()` | client | who has focus |
 | `SetRewindCredit(usedMs, maxMs)` · `SetSideBoost(v)` · `SetSpeedometerHidden(bool)` · `SpeedometerDemo(on)` | client | speedometer |
 | `OpenPauseMenu()` · `ClosePauseMenu()` · `IsPauseMenuOpen()` | client | pause menu |
+| `CloseChat()` · `IsChatOpen()` | client | chat |
+| `OpenEmoteMenu()` · `PlayEmote(key)` · `StopEmote()` | client | emotes |
 
 Event: `spz-hud:state` (client), with the new state.
 

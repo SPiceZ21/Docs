@@ -143,7 +143,7 @@ exports['spz-races']:GrantBonus(source, { xp = 250, credits = 500, reason = 'eve
 ## Record crowns
 
 Holding a track's fastest stored line earns a gold crown on your nametag, rendered by
-`spz-nametag` from the `spz:records` statebag (with a count when you hold more than one).
+the nametags (spz-hud) from the `spz:records` statebag (with a count when you hold more than one).
 Taking a record broadcasts to everyone — "X snatched the [track] record from Y" — and logs
 to Discord. Crown counts refresh live for both the new holder and the dethroned one.
 

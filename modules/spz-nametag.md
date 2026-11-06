@@ -1,8 +1,8 @@
-# spz-nametag
+# Nametags
 
 > Nametags with rank, crew and record crowns.
 
-![version](https://img.shields.io/badge/version-1.2.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-hud](spz-hud.md): this was the separate resource `spz-nametag` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -16,24 +16,9 @@ Draws a nametag over nearby players with their name, rank, crew and a crown if t
 - Record crowns
 - Distance fade
 
-## Requirements
-
-None — runs on its own.
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-nametag` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`:
-
-```cfg
-ensure spz-nametag
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-hud/config_nametag.lua (`Config.Nametag`)`
 
 See the file for every option.
 
@@ -53,4 +38,4 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-nametag](https://github.com/SPiceZ21/spz-nametag)
+Source: [https://github.com/SPiceZ21/spz-hud](https://github.com/SPiceZ21/spz-hud)

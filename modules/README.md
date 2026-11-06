@@ -30,9 +30,6 @@ Every module in the SPiceZ-Core beta. Each is its own resource and repository (a
 
 | Module | Version | What it does |
 |---|---|---|
-| [spz-nametag](spz-nametag.md) | `1.2.0` | Nametags with rank, crew and record crowns. |
-| [spz-chat](spz-chat.md) | `1.9.0` | Global, crew and DM chat with command autocomplete. |
-| [spz-emotes](spz-emotes.md) | `1.0.0` | Emote menu: dances, gestures, poses, shared emotes, walk styles and moods. |
 
 ## Social
 

@@ -15,11 +15,11 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/discardclip` | [spz-core](../modules/spz-core.md) | Stop recording without saving |
 | `/duel` | [spz-races](../modules/spz-races.md) | `/duel <player> <track> <stake>` — challenge a player |
 | `/dv` | [spz-vehicles](../modules/spz-vehicles.md) | Delete your vehicle |
-| `/e` | [spz-emotes](../modules/spz-emotes.md) | `/e <name>` play an emote, `/e` stop |
+| `/e` | [spz-hud](../modules/spz-emotes.md) | `/e <name>` play an emote, `/e` stop |
 | `/editor` | [spz-core](../modules/spz-core.md) | Open the Rockstar Editor |
-| `/emotes` | [spz-emotes](../modules/spz-emotes.md) | Open the menu |
+| `/emotes` | [spz-hud](../modules/spz-emotes.md) | Open the menu |
 | `/fix` | [spz-core](../modules/spz-core.md) | Repair the vehicle you are in |
-| `/help` | [spz-chat](../modules/spz-chat.md) | List every server feature and its key |
+| `/help` | [spz-hud](../modules/spz-chat.md) | List every server feature and its key |
 | `/idlecam` | [spz-vehicles](../modules/spz-vehicles.md) | Toggle the idle camera |
 | `/joinrace` | [spz-races](../modules/spz-races.md) | Join the race queue (also `E` in freeroam) |
 | `/leaderboard` | [spz-races](../modules/spz-races.md) | Open the leaderboard |
@@ -95,7 +95,7 @@ Every chat command in the beta. **Who:** `player` — anyone; `admin` — needs 
 | `/racesoundtest` | [spz-races](../modules/spz-races.md) | Play the grid sounds |
 | `/rankuptest` | [spz-races](../modules/spz-races.md) | Preview the rank-up animation |
 | `/rlstatus` | [spz-raceline](../modules/spz-raceline.md) | Recording / storage status |
-| `/syncnametags` | [spz-nametag](../modules/spz-nametag.md) | Force a nametag resync |
+| `/syncnametags` | [spz-hud](../modules/spz-nametag.md) | Force a nametag resync |
 | `/vec3` | [spz-admin](../modules/spz-admin.md) | Copy your coords |
 | `/vec4` | [spz-admin](../modules/spz-admin.md) | Copy your coords + heading |
 | `/wantedtest` | [spz-races](../modules/spz-races.md) | Preview the wanted HUD |

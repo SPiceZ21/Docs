@@ -27,7 +27,7 @@ single NUI page.
 
 ```mermaid
 flowchart LR
-    lua["resource Lua<br/>(spz-races, spz-chat, …)"] -- SendNUIMessage --> shim["@spz-hud/shim.lua"]
+    lua["resource Lua<br/>(spz-races, spz-vehicles, …)"] -- SendNUIMessage --> shim["@spz-hud/shim.lua"]
     shim --> host["spz-hud page"]
     host --> layer["that resource's layer"]
     layer -- "NUI callback<br/>https://&lt;resource&gt;/…" --> lua

@@ -1,8 +1,8 @@
-# spz-chat
+# Chat
 
 > Global, crew and DM chat with command autocomplete.
 
-![version](https://img.shields.io/badge/version-1.9.0-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
+> Part of [spz-hud](spz-hud.md): this was the separate resource `spz-chat` until it was merged in. Nothing to install on its own.
 
 ## Overview
 
@@ -21,28 +21,9 @@ Replaces the default chat. `T` opens it; messages go to global, crew or direct c
 - Hidden during the loading screen and spawn menu
 - Auto-closes on teleports and mode changes
 
-## Requirements
-
-| Resource | Type |
-|---|---|
-| `ox_lib` | third-party |
-| `spz-core` | SPiceZ module |
-| `spz-identity` | SPiceZ module |
-
-## Installation
-
-Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
-
-1. Download `spz-chat` from GitHub (latest release, or the repository) into your `resources` folder.
-2. Add to `server.cfg`, after its requirements:
-
-```cfg
-ensure spz-chat
-```
-
 ## Configuration
 
-- `config.lua`
+- `spz-hud/config_chat.lua (`Config.Chat`), and `config_chat_server.lua` for the GIPHY API keys (server only)`
 
 See the file for every option.
 
@@ -64,13 +45,13 @@ Rebindable in **Settings → Key Bindings → FiveM**.
 
 | Export | Side |
 |---|---|
-| `Close` | client |
-| `IsOpen` | client |
+| `CloseChat` | client |
+| `IsChatOpen` | client |
 
 ```lua
-exports["spz-chat"]:Close(...)
+exports["spz-hud"]:CloseChat()
 ```
 
 ---
 
-Source: [https://github.com/SPiceZ21/spz-chat](https://github.com/SPiceZ21/spz-chat)
+Source: [https://github.com/SPiceZ21/spz-hud](https://github.com/SPiceZ21/spz-hud)

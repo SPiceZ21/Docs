@@ -29,14 +29,14 @@ in-race hint use it, so a rebind shows within about a second.
 | `F6` | Race results / leaderboard | spz-races | `client/ui/leaderboard.lua` |
 | `F7` | Open the minigame hub (mapping command `minigames_hub`) | spz-minigames | `config.lua` → `Config.Key` (speed camera records moved to F2) |
 | `F9` | Race board: cycle full / mini / hidden | spz-races | `config_spectate.lua` → `Config.Spectate.Board.keys.cycle` |
-| `F10` | Toggle player nametags | spz-nametag | `config.lua` → `Config.Keybind` |
+| `F10` | Toggle player nametags | spz-hud | `config_nametag.lua` → `Config.Nametag.Keybind` |
 | `F11` | Race board: hide or restore | spz-races | `config_spectate.lua` → `Config.Spectate.Board.keys.hide` |
 | `TAB` | Open the SPiceZ hub (profile, standings, crew, achievements…) — takes GTA's weapon-wheel key | spz-hud | `client/hub.lua` |
-| `T` | Open chat | spz-chat | `config.lua` → `Config.Keybind` |
+| `T` | Open chat | spz-hud | `config_chat.lua` → `Config.Chat.Keybind` |
 | `B` | Race: rewind time (hold) | spz-races | `config.lua` → `Config.Rewind.key` |
 | `K` | Race: flip car upright | spz-races | `client/recover.lua` |
 | `Y` | Race: tune car during warmup (only while in a race warmup) | spz-races | `client/nui_bridge.lua` |
-| `O` | Open the emote menu | spz-emotes | `config.lua` → `Config.MenuKey` |
+| `O` | Open the emote menu | spz-hud | `config_emotes.lua` → `Config.Emotes.MenuKey` |
 | `N` | Race: toggle standings list | spz-races | `client/ui/raceui.lua` |
 | `J` | Hazard lights | spz-vehicles | `client/vehfunc/main.lua` |
 | `L` | Flash headlights (hold) | spz-vehicles | `client/vehfunc/main.lua` |
@@ -52,7 +52,7 @@ which is undone by the next ox_lib update.
 | Key | Action |
 | --- | --- |
 | `Z` | Radial menu (carries the raceline / ghost controls); shown on the key strip in every state |
-| `X` | Cancel the progress bar — also stops an emote (spz-emotes `Config.CancelKey`); the two never apply at once |
+| `X` | Cancel the progress bar — also stops an emote (spz-hud `Config.Emotes.CancelKey`); the two never apply at once |
 
 ## Reserved by FiveM / GTA
 
